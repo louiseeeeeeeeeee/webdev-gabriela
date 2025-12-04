@@ -30,7 +30,7 @@ body { font-family: "Poppins", sans-serif; color: var(--dark); line-height: 1.6;
 /* Hero Section */
 .hero {
     position: relative;
-    background: url('condoms.jpg') center/cover no-repeat;
+    background: url('assets/condoms.jpg') center/cover no-repeat;
     min-height: 80vh;
     display: flex;
     align-items: center;
@@ -39,6 +39,9 @@ body { font-family: "Poppins", sans-serif; color: var(--dark); line-height: 1.6;
     border-radius: 30px;
     overflow: hidden;
     color: white;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 20px;
 }
 
 .hero-overlay {
