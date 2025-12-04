@@ -4,76 +4,95 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gabriella - Healthcare Home</title>
-    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="home2.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
     <!-- Header -->
     <header class="header">
         <div class="header-inner">
             <div class="logo">Gab<span class="logo-text-main">ri</span><span class="accent">ella</span></div>
-
             <nav class="nav">
-                <a href="#">Home</a>
+                <a href="index2.html">Home</a>
                 <a href="about.html">About Us</a>
-                <a href="#">Membership</a>
-                <a href="#">Learn</a>
-                <a href="#">Contact</a>
+                <a href="membership.html">Membership</a>
+                <a href="learn.html">Learn</a>
+                <a href="contact.html">Contact</a>
             </nav>
-
             <button class="btn login">Log In</button>
         </div>
     </header>
 
-    <!-- Hero -->
-    <section class="hero">
-        <h1>Headline</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam hendrerit volutpat neque.</p>
-        <button class="btn warm">Explore More</button>
+  <!-- Hero Section -->
+<section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <h1>Your Health, Our Priority</h1>
+        <p>Empowering communities with knowledge, care, and safe practices for a healthier life.</p>
+        <div class="hero-buttons">
+            <a href="membership.html" class="btn warm">Join Now</a>
+            <a href="#features" class="btn outline">Learn More</a>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Features / Info Section -->
+    <section class="features" id="features">
+        <div class="feature-card">
+            <img src="assets/education.svg" alt="Education Icon">
+            <h3>Education</h3>
+            <p>Learn about safe practices, sexual health, and preventive care.</p>
+        </div>
+        <div class="feature-card">
+            <img src="assets/support.svg" alt="Support Icon">
+            <h3>Support</h3>
+            <p>Get professional guidance from our trained healthcare specialists.</p>
+        </div>
+        <div class="feature-card">
+            <img src="assets/membership.svg" alt="Membership Icon">
+            <h3>Membership</h3>
+            <p>Join our community for exclusive resources, events, and consultations.</p>
+        </div>
     </section>
 
-    <!-- Info Sections -->
+    <!-- Info Cards -->
     <section class="info">
         <div class="info-card left">
             <h2>Who We Are</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p>Gabriella Healthcare is dedicated to promoting health awareness and empowering individuals with knowledge.</p>
         </div>
-
         <div class="info-card right">
             <h2>Learn Safe Sex</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p>Access comprehensive, safe, and evidence-based information on sexual health and protection.</p>
         </div>
-
         <div class="info-card left">
             <h2>How to Member?</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p>Becoming a member is easy! Sign up today and access resources, consultations, and workshops.</p>
         </div>
     </section>
 
-    <!-- Contact -->
-    <section class="contact">
-        <h2>Want to ask us a question?</h2>
-        <button class="btn">Contact Us</button>
+    <!-- Call to Action -->
+    <section class="cta">
+        <h2>Ready to take control of your health?</h2>
+        <a href="membership.html" class="btn warm">Join Now</a>
     </section>
 
     <!-- Footer -->
-<footer class="footer">
-    <div class="footer-container">
-        <p class="footer-logo">Gabriella</p>
-
-        <nav class="footer-nav">
-            <a href="#">Home</a>
-            <a href="#">About Us</a>
-            <a href="#">Membership</a>
-            <a href="#">Learn</a>
-            <a href="#">Contact</a>
-        </nav>
-
-        <p class="footer-copy">© 2025 Gabriella Healthcare. All rights reserved.</p>
-    </div>
-</footer>
+    <footer class="footer">
+        <div class="footer-container">
+            <p class="footer-logo">Gabriella</p>
+            <nav class="footer-nav">
+                <a href="#">Home</a>
+                <a href="#">About Us</a>
+                <a href="#">Membership</a>
+                <a href="#">Learn</a>
+                <a href="#">Contact</a>
+            </nav>
+            <p class="footer-copy">© 2025 Gabriella Healthcare. All rights reserved.</p>
+        </div>
+    </footer>
 
 </body>
 </html>
