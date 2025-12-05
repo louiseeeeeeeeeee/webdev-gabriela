@@ -91,38 +91,95 @@ body {
     gap: 30px;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
-
+/* PLAN CARDS – COMPACT THEN EXPAND ON HOVER */
 .plan-card {
-    background: var(--light);
-    padding: 40px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #eaf2ff, #cce6ff);
     border-radius: 25px;
     border-left: 10px solid var(--secondary);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+    cursor: pointer;
+    padding: 30px 40px;
+    height: 140px; /* compact height: title + price */
+    transition: all 0.4s ease;
 }
 
+/* Highlighted Plan */
 .plan-card.highlight {
     border-left: 10px solid var(--warm);
-    transform: scale(1.02);
 }
 
-.plan-card h2 {
-    font-size: 28px;
+/* Title and price always visible */
+.plan-card h2,
+.plan-card .price {
     margin-bottom: 10px;
 }
 
-.price {
-    font-size: 24px;
-    font-weight: 600;
-    margin-bottom: 20px;
+/* Hide features & button initially */
+.plan-card ul,
+.plan-card button {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transform: translateY(20px);
+    transition: all 0.4s ease;
+    pointer-events: none; /* makes button unclickable when hidden */
 }
 
+/* Hover: expand card height */
+.plan-card:hover {
+    height: auto; /* expands naturally */
+    padding: 40px;
+    transform: scale(1.03);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+/* Hover: reveal features & button */
+.plan-card:hover ul,
+.plan-card:hover button {
+    opacity: 1;
+    max-height: 500px;
+    transform: translateY(0);
+    pointer-events: auto; /* enables button clicks */
+}
+
+/* Feature list styling */
 .plan-card ul {
     list-style: none;
     margin-bottom: 25px;
+    padding-left: 0;
 }
 
 .plan-card ul li {
-    margin: 8px 0;
+    margin: 10px 0;
     font-size: 16px;
+    color: var(--dark);
+    position: relative;
+    padding-left: 20px;
+}
+
+.plan-card ul li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--warm);
+}
+
+.price {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--secondary);
+    margin-bottom: 0;
+}
+
+.plan-card button {
+    transition: all 0.3s ease;
+}
+
+.plan-card button:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
 }
 
 /* Footer (same as home) */
