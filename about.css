@@ -65,18 +65,35 @@ body {
 
 /* Hero */
 .about-hero {
-    padding: 80px 20px;
+    padding: 100px 20px;
     text-align: center;
-    background: var(--secondary);
     color: white;
+
+    /* Hero Image */
+    background-image: url('your-image.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    position: relative;
 }
+
+/* Overlay (optional, but it will makes the text readable hehe) */
+.about-hero .overlay {
+    background: rgba(0, 0, 0, 0.45);
+    padding: 60px 20px;
+    border-radius: 10px;
+}
+
 .about-hero h1 {
     font-size: 48px;
     margin-bottom: 10px;
 }
+
 .about-hero p {
     font-size: 20px;
 }
+
 
 /* Sections */
 .section {
