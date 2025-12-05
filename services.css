@@ -142,6 +142,7 @@ body {
     max-height: 500px;
     transform: translateY(0);
     pointer-events: auto; /* enables button clicks */
+    transition: all 2.0s ease-in-out; /* delay for smooth reveal */
 }
 
 /* Feature list styling */
