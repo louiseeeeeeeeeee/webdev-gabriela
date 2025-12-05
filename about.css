@@ -7,6 +7,7 @@
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
+
 body {
     font-family: "Poppins", sans-serif;
     color: var(--dark);
@@ -33,6 +34,7 @@ body {
 .logo span { color: var(--main); }
 .logo .accent { color: var(--secondary); }
 .logo .logo-text-main { color: var(--warm); }
+
 .nav {
     display: flex;
     gap: 20px;
@@ -63,37 +65,43 @@ body {
 }
 .btn:hover { opacity: 0.9; }
 
-/* Hero */
+/* HERO */
 .about-hero {
-    padding: 100px 20px;
+    padding: 20px;
     text-align: center;
-    color: white;
+    color: rgb(242, 243, 255);
+    background: none;
+    display: flex;
+    justify-content: center;
+}
 
-    /* Hero Image */
-    background-image: url('your-image.jpg');
+.about-hero .overlay {
+    width: 100%;
+    max-width: 3000px;
+
+    padding: 240px 20px;
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    background-image: url('assets/Condom_blue.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 
-    position: relative;
-}
-
-/* Overlay (optional, but it will makes the text readable hehe) */
-.about-hero .overlay {
-    background: rgba(0, 0, 0, 0.45);
-    padding: 60px 20px;
-    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.4);
+    background-blend-mode: darken;
 }
 
 .about-hero h1 {
-    font-size: 48px;
+    font-size: 64px;
     margin-bottom: 10px;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.7);
 }
-
 .about-hero p {
     font-size: 20px;
+    text-shadow: 0 3px 15px rgba(0,0,0,0.7);
 }
-
 
 /* Sections */
 .section {
@@ -104,8 +112,8 @@ body {
 }
 .container {
     max-width: 1000px;
-    margin: auto;
-    text-align: center;
+    margin: 10px;
+    text-align: left;
 }
 .section h2 {
     font-size: 36px;
@@ -208,4 +216,70 @@ body {
 @media (max-width: 768px) {
     .about-hero h1 { font-size: 32px; }
     .section h2 { font-size: 28px; }
+}
+
+/* MISSION HOVER ANIMATION */
+
+.mission-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+
+    max-width: 1100px;
+    margin: 120px auto;
+    padding: 60px 40px;
+
+    transition: transform 0.4s ease;
+}
+
+.mission-content {
+    flex: 1;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+    transform: scale(1);
+    opacity: 0.9;
+}
+
+.mission-content h2 {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+.mission-section.hovered .mission-content {
+    transform: scale(1.06);
+    opacity: 1;
+}
+
+/* SLIDING BANANA IMAGE (ROTATED LEFT) */
+.mission-image img {
+    width: 420px;
+    max-width: 100%;
+
+    transform: translateX(200px) rotate(-25deg);  /* <-- ROTATED COUNTERCLOCKWISE */
+    opacity: 0;
+
+    transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+.mission-section.hovered .mission-image img {
+    transform: translateX(0) rotate(-25deg); /* stays rotated */
+    opacity: 1;
+}
+
+.mission-section:not(.hovered) .mission-image img {
+    transform: translateX(200px) rotate(-25deg);
+    opacity: 0;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .mission-section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .mission-image img {
+        width: 80%;
+        transform: translateX(0) rotate(-25deg);
+    }
 }

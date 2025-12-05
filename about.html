@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta-name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - Gabriella Healthcare</title>
     <link rel="stylesheet" href="about.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -27,7 +27,7 @@
         </div>
     </header>
 
-   <!-- Hero / Banner -->
+    <!-- Hero / Banner -->
     <section class="about-hero">
         <div class="overlay">
             <h1>About Gabriella Healthcare</h1>
@@ -35,14 +35,19 @@
         </div>
     </section>
 
-    <!-- Mission -->
-    <section class="section">
-        <div class="container">
+    <!-- MISSION (Hover Zoom + Image Slide Animation) -->
+    <section class="mission-section">
+        <div class="mission-content">
             <h2>Our Mission</h2>
             <p>
-                Gabriella Healthcare aims to provide safe, inclusive, and evidence-based information on sexual and reproductive health. 
-                We believe every young woman deserves access to knowledge without judgment or barriers.
+                Gabriella Healthcare aims to provide safe, inclusive, and evidence-based information on sexual and 
+                reproductive health. We believe every young woman deserves access to knowledge without judgment 
+                or barriers.
             </p>
+        </div>
+
+        <div class="mission-image">
+            <img src="assets/Banana_nobg.png" alt="Mission Image">
         </div>
     </section>
 
@@ -125,6 +130,21 @@
             <p class="footer-copy">© 2025 Gabriella Healthcare. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- Mission Hover Script -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const mission = document.querySelector('.mission-section');
+
+            mission.addEventListener('mouseenter', () => {
+                mission.classList.add('hovered');
+            });
+
+            mission.addEventListener('mouseleave', () => {
+                mission.classList.remove('hovered');
+            });
+        });
+    </script>
 
 </body>
 </html>
