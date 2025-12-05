@@ -23,9 +23,9 @@ body { font-family: "Poppins", sans-serif; color: var(--dark); line-height: 1.6;
 .nav a { color: var(--light); text-decoration: none; font-size: 18px; }
 .nav a:hover { opacity: 0.7; }
 .btn { padding: 12px 28px; border: none; border-radius: 40px; cursor: pointer; font-size: 16px; background: var(--secondary); color: #fff; }
-.btn.warm { background: var(--warm); }
-.btn.outline { background: transparent; color: var(--main); border: 2px solid var(--main); }
-.btn:hover { opacity: 0.9; }
+.btn.warm {  background: transparent; color: var(--light); border: 2px solid var(--light)}
+.btn.outline { background: transparent; color: var(--light); border: 2px solid var(--light)}
+.btn:hover { opacity: 0.9; transition-duration: 10ms; }
 
 /* Hero Section */
 .hero {
@@ -75,6 +75,17 @@ body { font-family: "Poppins", sans-serif; color: var(--dark); line-height: 1.6;
     flex-wrap: wrap;
 }
 
+.btn.warm:hover{ 
+    background: var(--warm); 
+    color: var(--light); 
+    border: 2px solid var(--warm)
+}
+.btn.outline:hover{
+    background: var(--secondary);
+    color: var(--light); 
+    border: 2px solid var(--secondary)
+}
+
 /* Features Section */
 .features {
     max-width: 1200px;
@@ -111,7 +122,7 @@ body { font-family: "Poppins", sans-serif; color: var(--dark); line-height: 1.6;
     text-align: center;
 }
 .cta h2 { font-size: 36px; margin-bottom: 25px; }
-.cta .btn { font-size: 18px; padding: 14px 32px; }
+.cta .btn { font-size: 18px; padding: 14px 32px; background-color: var(--warm);color:var(--light);border: 2px solid var(--warm) }
 
 /* Footer */
 .footer {
