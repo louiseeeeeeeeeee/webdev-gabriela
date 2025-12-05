@@ -116,13 +116,52 @@ body { font-family: "Poppins", sans-serif; color: var(--dark); line-height: 1.6;
 .info-card p { font-size: 18px; }
 
 /* Call to Action */
-.cta {
+.cta-cards {
     max-width: 1200px;
     margin: 80px auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: wrap;
     text-align: center;
 }
-.cta h2 { font-size: 36px; margin-bottom: 25px; }
-.cta .btn { font-size: 18px; padding: 14px 32px; background-color: var(--warm);color:var(--light);border: 2px solid var(--warm) }
+
+.cta-card {
+    flex: 1 1 30%;
+    background: var(--light);
+    border-radius: 25px;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.cta-card img {
+    width: 60px;
+    margin-bottom: 15px;
+}
+
+.cta-card h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.cta-card p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 1024px) {
+    .cta-card { flex: 1 1 45%; }
+}
+
+@media (max-width: 768px) {
+    .cta-card { flex: 1 1 100%; }
+}
 
 /* Footer */
 .footer {
