@@ -132,12 +132,82 @@ body { font-family: "Poppins", sans-serif; color: var(--dark); line-height: 1.6;
 
 /* Call to Action */
 .cta {
-    max-width: 1200px;
-    margin: 80px auto;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    max-width: 1100px;
+    margin: 120px auto;
+    padding: 60px 40px;
+
+    transition: transform 0.4s ease;
 }
-.cta h2 { font-size: 36px; margin-bottom: 25px; }
-.cta .btn { font-size: 18px; padding: 14px 32px; background-color: var(--warm);color:var(--light);border: 2px solid var(--warm) }
+.cta h2 { font-size: 36px;}
+.cta .btn { font-size: 18px; padding: 14px 32px; background-color: var(--warm);color:var(--light);border: 2px solid var(--warm); align-self: center;
+    margin-top: 8px; }
+.cta p { font-size: 20px; margin: 0; }
+.cta h3 {
+    font-size: 36px; 
+    padding-top: 20px;
+    align-items: left;
+}
+
+.cta-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    flex: 1;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+    transform: translateY(8px);
+    opacity: 0;
+}
+
+.cta-text {
+    margin-top: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.cta-content img {
+    width: 400px;
+    height: auto;
+    margin-bottom: 20px;
+
+    /* start off slightly to the right and invisible */
+    opacity: 0;
+    transform: translateX(40px) scale(0.995);
+    transition: transform 400ms cubic-bezier(.22,.9,.3,1), opacity 400ms cubic-bezier(.22,.9,.3,1);
+}
+.cta-content.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.cta-content.in-view img {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+}
+
+.cta-content:hover img {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+}
+
+/* respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    .cta-content,
+    .cta-content img,
+    .cta-content.in-view,
+    .cta-content.in-view img,
+    .cta-content:hover img {
+        transition: none !important;
+        transform: none !important;
+        opacity: 1 !important;
+    }
+}
 
 /* Footer */
 .footer {
