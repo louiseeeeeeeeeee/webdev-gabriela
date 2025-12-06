@@ -1,8 +1,8 @@
 :root {
-    --main: #006f98;
-    --secondary: #1abbef;
-    --warm: #ff8b80;
-    --light: #eaf2ff;
+    --main: #020f5b;      /* deep blue */
+    --secondary:#D14C74; /* deep wine red */
+    --warm: #C02727;      /* dark red */
+    --light: #F4DFDF;     /* warm blush */
     --dark: #141414;
 }
 
