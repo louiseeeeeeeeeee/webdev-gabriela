@@ -17,7 +17,11 @@ body {
 .header {
     background: var(--main);
     padding: 20px;
-    box-shadow: 0 4px 4px rgba(0,0,0,0.25);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
 
 .header-inner {
@@ -101,7 +105,7 @@ body {
     box-shadow: 0 10px 20px rgba(0,0,0,0.08);
     cursor: pointer;
     padding: 30px 40px;
-    height: 140px; /* compact height: title + price */
+    height: 160px; /* compact height: title + price */
     transition: all 0.4s ease;
 }
 
@@ -187,7 +191,7 @@ body {
 .footer {
     width: 100%;
     background-color: var(--main);
-    padding: 0px 20px;
+    padding: 50px 20px;
     color: white;
     margin-top: 60px;
 }
