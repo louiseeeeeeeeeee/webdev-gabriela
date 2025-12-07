@@ -1,8 +1,8 @@
 :root {
-    --main: #006f98;
-    --secondary: #1abbef;
-    --warm: #ff8b80;
-    --light: #eaf2ff;
+    --main: #020f5b;      /* deep blue */
+    --secondary:#D14C74; /* deep wine red */
+    --warm: #C02727;      /* dark red */
+    --light: #F4DFDF;     /* warm blush */
     --dark: #141414;
 }
 
@@ -13,6 +13,11 @@ body { font-family: "Poppins", sans-serif; color: var(--dark); }
 .header {
     background: var(--main);
     padding: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
 .header-inner {
     max-width: 1200px;
