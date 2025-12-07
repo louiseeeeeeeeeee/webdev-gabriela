@@ -72,6 +72,30 @@
         </div>
     </section>
 
+    <!-- Membership Overlay -->
+<div id="membershipOverlay">
+  <div class="overlay-content">
+    <span id="closeMembership">&times;</span>
+    <form id="membershipForm">
+      <h2>Subscribe to <span id="selectedPlan">Plan Name</span></h2>
+      <input type="text" name="fullName" placeholder="Full Name" required>
+      <input type="email" name="email" placeholder="Email" required>
+
+       <label for="paymentMethod">Payment Method</label>
+      <select name="paymentMethod" id="paymentMethod" required>
+        <option value="">Select a method</option>
+        <option value="paypal">PayPal</option>
+        <option value="gcash">Gcash</option>
+        <option value="Maya">Maya</option>
+      </select>
+      <input type="number"name="paymentDetail" id="paymentDetail" placeholder="" style="display:none;" required>
+
+      <button type="submit" class="btn">Submit</button>
+    </form>
+  </div>
+</div>
+
+
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-container">
@@ -89,6 +113,7 @@
         </div>
     </footer>
     
-<script src="js/cta.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/cta.js" defer></script>
 </body>
 </html>
