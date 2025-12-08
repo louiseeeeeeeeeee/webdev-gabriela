@@ -226,3 +226,4 @@ if (registerForm) {
         updateAuthButton();
     });
 }
+

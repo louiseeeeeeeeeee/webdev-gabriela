@@ -88,7 +88,7 @@ body {
 
     overflow: hidden;
 
-    background-image: url('assets/Condom_blue.png');
+    background-image: url('../assets/Condom_blue.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -238,6 +238,7 @@ body {
 }
 
 .mission-content {
+    text-align: left; /* left text */
     flex: 1;
     transition: transform 0.4s ease, opacity 0.4s ease;
     transform: scale(1);
@@ -245,8 +246,8 @@ body {
 }
 
 .mission-content h2 {
-    font-size: 50px;
-    margin-bottom: 20px;
+    font-size: 60px;
+    margin-bottom: 30px;
 }
 
 .mission-section.hovered .mission-content {
@@ -286,4 +287,192 @@ body {
         width: 80%;
         transform: translateX(0) rotate(-25deg);
     }
+}
+
+/* --- VISION HOVER ANIMATION --- */
+
+.vision-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+
+    max-width: 1100px;
+    margin: 120px auto;
+    padding: 60px 40px;
+
+    transition: transform 0.4s ease;
+}
+
+/* VISION TEXT */
+.vision-content {
+    flex: 1;
+    text-align: left; /* left text */
+    transition: transform 0.4s ease, opacity 0.4s ease;
+    transform: scale(1);
+    opacity: 0.9;
+}
+
+.vision-content h2 {
+    font-size: 60px;
+    margin-bottom: 30px;
+}
+
+/* Hover zoom effect for text (same as mission) */
+.vision-section.hovered .vision-content {
+    transform: scale(1.06);
+    opacity: 1;
+}
+
+/* SLIDING IMAGE — LEFT TO RIGHT */
+.vision-image img {
+    width: 420px;
+    max-width: 100%;
+
+    transform: translateX(-200px) rotate(15deg); /* <-- slide IN from the LEFT */
+    opacity: 0;
+
+    transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+.vision-section.hovered .vision-image img {
+    transform: translateX(0) rotate(15deg); /* stays rotated */
+    opacity: 1;
+}
+
+.vision-section:not(.hovered) .vision-image img {
+    transform: translateX(-200px) rotate(15deg);
+    opacity: 0;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .vision-section {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+
+    .vision-image img {
+        width: 80%;
+        transform: translateX(0) rotate(15deg);
+    }
+}
+
+/* --- CENTER VALUES & IMPROVE GRID --- */
+.container.values {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.value-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+    justify-items: center; /* centers each card evenly */
+}
+
+/* --- VALUE CARD STYLING --- */
+.value-card {
+    background: white;
+    padding: 22px 20px;
+    width: 100%;
+    max-width: 220px;
+
+    border-radius: 18px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.12);
+
+    font-weight: 600;
+    font-size: 18px;
+    transition: 
+        transform 0.25s ease,
+        background-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+/* --- HOVER EFFECT: ZOOM + COLOR CHANGE --- */
+.value-card:hover {
+    transform: scale(1.08);
+    background-color: var(--secondary);
+    color: white;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.18);
+}
+
+/* --- CENTER MEET THE TEAM SECTION --- */
+.section.alt .container.team {
+    margin: 0 auto;          /* center container */
+    text-align: center;      /* center heading */
+}
+
+/* center the grid & cards */
+.section.alt .team-grid {
+    justify-items: center;   /* centers every team card */
+}
+
+/* Team Section Centering */
+.section.alt .container.team {
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Grid Layout */
+.team-grid {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 30px;
+    justify-items: center;
+}
+
+/* Team Cards */
+.team-card {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    max-width: 260px;
+    width: 100%;
+    text-align: center;
+
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+
+    transition: 
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+.team-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.12);
+}
+
+/* Avatar */
+.avatar {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    border: 4px solid var(--secondary);
+    margin: 0 auto 20px;
+
+    transition: transform 0.4s ease, border-color 0.4s ease;
+}
+
+.team-card:hover .avatar {
+    transform: scale(1.08);
+    border-color: var(--main);
+}
+
+
+/* Fade-up animation */
+.fade-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
+}
+
+.fade-up.show {
+    opacity: 1;
+    transform: translateY(0);
 }
