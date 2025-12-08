@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const paymentMethod = document.getElementById("paymentMethod");
     const paymentDetail = document.getElementById("paymentDetail");
 
-    // Show paymentDetail input only when a method is selected
+    // Show paymentDetail input only when selected
     paymentMethod.addEventListener("change", () => {
         const method = paymentMethod.value;
         if (!method) {
@@ -25,6 +25,21 @@ document.addEventListener('DOMContentLoaded', () => {
             default: paymentDetail.placeholder = "Enter payment info";
         }
     });
+
+    // show overlay with plan + price
+const planButtons = document.querySelectorAll(".plan-card button");
+planButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+        const card = btn.closest(".plan-card");
+        const planName = card.querySelector("h2").textContent;
+        const planPrice = card.querySelector(".price").textContent;
+
+        selectedPlan.textContent = planName;
+        selectedPrice.textContent = ` (${planPrice})`; // show price next to plan name
+        membershipOverlay.style.display = "flex";
+    });
+});
+
 
     // Form submission
     membershipForm.addEventListener("submit", (e) => {
