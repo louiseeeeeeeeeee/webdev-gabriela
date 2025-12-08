@@ -28,74 +28,78 @@
         </div>
     </header>
 
-    <!-- Hero -->
-    <section class="hero">
-        <h1>Membership Plans</h1>
-        <p>Choose a healthcare plan that fits your lifestyle and needs.</p>
-    </section>
+<!-- Hero -->
+<section class="hero">
+    <h1>Membership Plans</h1>
+    <p>Choose a healthcare plan that fits your lifestyle and needs.</p>
+</section>
 
-    <!-- Membership Cards -->
-    <section class="membership">
-        <div class="plan-card">
-            <h2>Basic Plan</h2>
-            <p class="price">₱499 / month</p>
-            <ul>
-                <li>✔ 2 Online Consultations / month</li>
-                <li>✔ Appointment Booking</li>
-                <li>✔ Basic Health Monitoring</li>
-                <li>✘ No In-Person Checkups</li>
-            </ul>
-            <button class="btn warm">Choose Plan</button>
-        </div>
+<!-- Membership Cards -->
+<section class="membership">
+    <div class="plan-card">
+        <h2>Basic Plan</h2>
+        <p class="price">₱499/month</p>
+        <ul>
+            <li>2 Online Consultations / month</li>
+            <li>Appointment Booking</li>
+            <li>Basic Health Monitoring</li>
+            <li>✘ No In-Person Checkups</li>
+        </ul>
+        <button class="btn warm">Choose Plan</button>
+    </div>
 
-        <div class="plan-card highlight">
-            <h2>Standard Plan</h2>
-            <p class="price">₱999 / month</p>
-            <ul>
-                <li>✔ 4 Online Consultations / month</li>
-                <li>✔ 1 In-Person Checkup / month</li>
-                <li>✔ Priority Scheduling</li>
-                <li>✔ Health Dashboard</li>
-            </ul>
-            <button class="btn">Choose Plan</button>
-        </div>
+    <div class="plan-card highlight">
+        <h2>Standard Plan</h2>
+        <p class="price">₱999/month</p>
+        <ul>
+            <li>✔ 4 Online Consultations / month</li>
+            <li>✔ 1 In-Person Checkup / month</li>
+            <li>✔ Priority Scheduling</li>
+            <li>✔ Health Dashboard</li>
+        </ul>
+        <button class="btn warm">Choose Plan</button>
+    </div>
 
-        <div class="plan-card">
-            <h2>Premium Plan</h2>
-            <p class="price">₱1,499 / month</p>
-            <ul>
-                <li>✔ Unlimited Online Consultations</li>
-                <li>✔ Unlimited In-Person Checkups</li>
-                <li>✔ Personalized Programs</li>
-                <li>✔ 24/7 Support</li>
-            </ul>
-            <button class="btn warm">Join Premium</button>
-        </div>
-    </section>
+    <div class="plan-card">
+        <h2>Premium Plan</h2>
+        <p class="price">₱1,499/month</p>
+        <ul>
+            <li>✔ Unlimited Online Consultations</li>
+            <li>✔ Unlimited In-Person Checkups</li>
+            <li>✔ Personalized Programs</li>
+            <li>✔ 24/7 Support</li>
+        </ul>
+        <button class="btn warm">Join Premium</button>
+    </div>
+</section>
 
-    <!-- Membership Overlay -->
+<!-- Membership Overlay -->
 <div id="membershipOverlay">
-  <div class="overlay-content">
-    <span id="closeMembership">&times;</span>
-    <form id="membershipForm">
-      <h2>Subscribe to <span id="selectedPlan">Plan Name</span></h2>
-      <input type="text" name="fullName" placeholder="Full Name" required>
-      <input type="email" name="email" placeholder="Email" required>
+    <div class="overlay-content">
+        <span id="closeMembership">&times;</span>
+        <form id="membershipForm">
+            <h2>
+                Subscribe to:<br>
+                <span id="selectedPlan">Plan Name</span>
+                <span id="selectedPrice"></span>
+            </h2>
+            <input type="text" name="fullName" placeholder="Full Name" required>
+            <input type="email" name="email" placeholder="Email" required>
 
-       <label for="paymentMethod">Payment Method</label>
-      <select name="paymentMethod" id="paymentMethod" required>
-        <option value="">Select a method</option>
-        <option value="paypal">PayPal</option>
-        <option value="gcash">Gcash</option>
-        <option value="Maya">Maya</option>
-      </select>
-      <input type="number"name="paymentDetail" id="paymentDetail" placeholder="" style="display:none;" required>
+            <label for="paymentMethod">Payment Method</label>
+            <select name="paymentMethod" id="paymentMethod" required>
+                <option value="">Select a method</option>
+                <option value="paypal">PayPal</option>
+                <option value="gcash">Gcash</option>
+                <option value="Maya">Maya</option>
+            </select>
 
-      <button type="submit" class="btn">Submit</button>
-    </form>
-  </div>
+            <input type="number" name="paymentDetail" id="paymentDetail" placeholder="" style="display:none;" required>
+
+            <button type="submit" class="btn">Submit</button>
+        </form>
+    </div>
 </div>
-
 
     <!-- Footer -->
     <footer class="footer">
@@ -176,7 +180,7 @@
     </div>
 </div>
 
-    
+<script src="js/plan.js"></script>
 <script src="js/nav.js"></script>
 <script src="js/cta.js"></script>
 </body>
