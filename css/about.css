@@ -9,7 +9,7 @@
     justify-content: center;
 }
 
-.about-hero .overlay {
+.about-hero .about-hero-content {
     width: 100%;
     max-width: 3000px;
 
@@ -27,12 +27,12 @@
     background-blend-mode: darken;
 }
 
-.about-hero h1 {
+.about-hero .about-hero-content h1 {
     font-size: 64px;
     margin-bottom: 10px;
     text-shadow: 0 4px 20px rgba(0,0,0,0.7);
 }
-.about-hero p {
+.about-hero .about-hero-content p {
     font-size: 20px;
     text-shadow: 0 3px 15px rgba(0,0,0,0.7);
 }
@@ -644,7 +644,7 @@ html, body {
 /* Soft fade pulsing for life */
 @keyframes fadePulse {
     0%, 100% { opacity: 1; }
-    50% { opacity:0.6 ; }
+    50% { opacity: 1; }
 }
 
 /* Content styling */
