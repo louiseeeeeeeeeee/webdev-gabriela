@@ -214,7 +214,7 @@ body {
     background: var(--main);
     padding: 40px 20px;
     color: white;
-    margin-top: 60px;
+    margin-top: 0px;
 }
 .footer-container {
     max-width: 1200px;
