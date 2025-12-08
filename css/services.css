@@ -67,7 +67,7 @@
     max-height: 500px;
     transform: translateY(0);
     pointer-events: auto;
-    transition: all 1.5s ease-in-out;
+    transition: all 1.0s ease-in-out;
 }
 
 .plan-card ul {
@@ -110,21 +110,102 @@
 #membershipOverlay {
     display: none;
     position: fixed;
-    top:0; left:0; right:0; bottom:0;
-    background: rgba(0,0,0,0.5);
+    inset: 0;
+    background: rgba(0,0,0,0.3);
+    backdrop-filter: blur(9px);
     justify-content: center;
     align-items: center;
-    z-index: 2000;
+    z-index: 4000;
 }
 
 #membershipOverlay .overlay-content {
-    background: white;
-    padding: 30px;
-    border-radius: 20px;
-    max-width: 400px;
-    width: 90%;
+    width: 500px;
+    height: 480px;
+    background: linear-gradient(145deg, rgba(2,15,91,0.8), rgba(0,111,152,0.6));
+    backdrop-filter: blur(20px);
+    border-radius: 25px;
+    padding: 35px;
+    border: 1.5px solid rgba(255,255,255,0.5);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    color: white;
+    font-size: larger;
     text-align: center;
-    position: relative;
+}
+#membershipOverlay .btn {
+    position: absolute;
+    left: 50%;
+    bottom: 20px;              /* moves it to the lower area */
+    transform: translateX(-50%);
+    background: #858585ef;       /* classy deep red */
+    color: white;
+    padding: 12px 30px;
+    border: black;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+/* Hover effect */
+#membershipOverlay .btn:hover {
+    background: #540000;       /* slightly darker red on hover */
+}
+/* Warm buttons */
+.btn.warm {
+    background: #C02727;  /* base red */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    background-size: cover;      /* make image cover the button */
+    background-position: center; /* center the image */
+}
+
+/* Hover: use image instead of plain color */
+.btn.warm:hover {
+    background: palevioletred;
+    background-size: cover;
+    background-position: center;
+    color: rgb(1, 1, 1); /* keep text visible */
+}
+
+#membershipOverlay .overlay-content h2 {
+    color: #efefef; 
+    font-size: 23px;
+    width: 100%;
+    padding: 10px 30px;   /* same padding as the button */
+    margin-bottom: 12px;
+}
+
+#selectedPlan,
+#selectedPrice {
+    color: #5f50ff;
+    font-weight: 700;       
+    margin-right: 5px;        /* space between name and price */
+}
+
+/* Make all inputs and the select match the button size */
+#membershipOverlay input,
+#membershipOverlay select {
+    width: 100%;
+    padding: 12px 30px;   /* same padding as the button */
+    border: 1px solid #ccc;
+    border-radius: 8px;   /* same radius as your button */
+    font-size: 1rem;      /* same text size */
+    margin-bottom: 12px;  /* spacing */
+    box-sizing: border-box;
+}
+
+/* Optional: style the placeholder to look nice */
+#membershipOverlay input::placeholder {
+    color: #666;
+}
+#membershipOverlay label{
+    text-indent: 100px;
 }
 
 #closeMembership {
@@ -141,7 +222,7 @@
     margin: 15px auto;
     padding: 10px;
     border-radius: 8px;
-    border: 1px solid #ccc;
+    border: 1px solid #5f50ff;
 }
 
 #membershipForm button {
@@ -161,7 +242,7 @@
     margin: 5px auto 15px auto;
     padding: 10px;
     border-radius: 8px;
-    border: 1px solid #ccc;
+    border: 1px solid #5f50ff;
     background: white;
 }
 
