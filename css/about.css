@@ -115,7 +115,7 @@ body {
 
     overflow: hidden;
 
-    background-image: url('assets/Condom_blue.png');
+    background-image: url('/assets/Condom_blue.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

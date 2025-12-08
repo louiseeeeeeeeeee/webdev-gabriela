@@ -1,87 +1,8 @@
-/* Colors and Base */
-:root {
-    --main: #020f5b;      /* deep blue */
-    --secondary:#D14C74; /* deep wine red */
-    --warm: #C02727;      /* dark red */
-    --light: #F4DFDF;     /* warm blush */
-    --dark: #141414;
-
-}
-
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: "Poppins", sans-serif; color: var(--dark); line-height: 1.6; }
-
-.nav a {
-  position: relative;
-  color: white;
-  text-decoration: none;
-  margin: 0 15px;              /* spacing between links */
-  font-size: 16px;
-  padding: 6px 10px;           /* optional padding for hover effect */
-  transition: all 0.3s ease;   /* smooth hover animations */
-}
-
-/* Hover effect: slide underline + color change + slight enlarge */
-.nav a::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -4px;
-  width: 0;
-  height: 2px;
-  background: #D14C74;
-  transition: width 0.3s ease;
-}
-
-.nav a:hover::after {
-  width: 100%;                 /* underline slides in */
-}
-
-.nav a:hover {
-  transform: scale(1.05);      /* slightly enlarge text */
-  color: #D14C74;              /* change text color */
-}
-.nav a.active::after { width: 100%; }
-.nav a.active {
-    transform: scale(1.05);
-    color: var(--secondary);
-    opacity: 0.7;
-}
-
-/* Header */
-.header {
-    background: var(--main);
-    padding: 20px;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    width: 100%;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-}
-.header-inner {
-    max-width: 1200px;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo { font-size: 32px; font-weight: 600; color: var(--light); }
-.logo span { color: var(--main); }
-.logo .accent { color: var(--secondary); }
-.logo .logo-text-main { color: var(--warm); }
-.nav { display: flex; gap: 20px; }
-.nav a { color: var(--light); text-decoration: none; font-size: 18px; }
-.nav a:hover { opacity: 0.7; }
-.btn { padding: 12px 28px; border: none; border-radius: 40px; cursor: pointer; font-size: 16px; background: var(--secondary); color: #fff; }
-.btn.warm {  background: transparent; color: var(--light); border: 2px solid var(--light)}
-.btn.outline { background: transparent; color: var(--light); border: 2px solid var(--light)}
-.btn:hover { opacity: 0.9; transition-duration: 10ms; }
-
+/* ------------------ HOME PAGE STYLES ------------------ */
 /* Hero Section */
 .hero {
     position: relative;
-    background: url('assets/condoms.jpg') center/cover no-repeat;
+    background: url('/assets/condoms.jpg') center/cover no-repeat;
     min-height: 80vh;
     display: flex;
     align-items: center;
