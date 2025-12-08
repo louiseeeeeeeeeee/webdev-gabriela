@@ -208,37 +208,37 @@ membershipOverlay.addEventListener("click", (e) => {
 });
 
 const paymentMethod = document.getElementById("paymentMethod");
-    const paymentDetail = document.getElementById("paymentDetail");
+const paymentDetail = document.getElementById("paymentDetail");
 
-    paymentMethod.addEventListener("change", () => {
-        const method = paymentMethod.value;
+paymentMethod.addEventListener("change", () => {
+    const method = paymentMethod.value;
 
-        if (!method) {
-            paymentDetail.style.display = "none";
-            paymentDetail.value = "";
-            paymentDetail.placeholder = "";
-            return;
-        }
+    if (!method) {
+        paymentDetail.style.display = "none";
+        paymentDetail.value = "";
+        paymentDetail.placeholder = "";
+        return;
+    }
 
-        paymentDetail.style.display = "block";
+    paymentDetail.style.display = "block";
 
-        switch(method) {
-            case "creditCard":
-                paymentDetail.placeholder = "Enter credit card number";
-                break;
-            case "paypal":
-                paymentDetail.placeholder = "Enter PayPal email";
-                break;
-            case "gcash":
-                paymentDetail.placeholder = "Enter Gcash number";
-                break;
-            case "bankTransfer":
-                paymentDetail.placeholder = "Enter bank account number";
-                break;
-            default:
-                paymentDetail.placeholder = "Enter payment info";
-        }
-    });
+    switch(method) {
+        case "creditCard":
+            paymentDetail.placeholder = "Enter credit card number";
+            break;
+        case "paypal":
+            paymentDetail.placeholder = "Enter PayPal email";
+            break;
+        case "gcash":
+            paymentDetail.placeholder = "Enter Gcash number";
+            break;
+        case "bankTransfer":
+            paymentDetail.placeholder = "Enter bank account number";
+            break;
+        default:
+            paymentDetail.placeholder = "Enter payment info";
+    }
+});
 // Form submission (just simulate success)
 document.getElementById("membershipForm").addEventListener("submit", (e) => {
     e.preventDefault();
