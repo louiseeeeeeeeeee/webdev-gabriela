@@ -146,13 +146,45 @@
         </div>
     </section>
 
+    <!-- Credibility / Partners Section -->
+    <section class="credibility-section">
+        <div class="credibility-container">
+            <h2>Trusted By</h2>
+            <p>We work closely with organizations dedicated to women's health, education, and empowerment.</p>
 
-    <!-- Contact CTA -->
-    <section class="contact-cta">
-        <h2>Have Questions?</h2>
-        <p>Our team is here to help you learn and stay informed.</p>
-        <button class="btn warm">Contact Us</button>
+            <div class="credibility-logos">
+                <div class="credibility-card">Partnered with NGOs</div>
+                <div class="credibility-card">Collaboration with Health Experts</div>
+                <div class="credibility-card">Community Education Programs</div>
+                <div class="credibility-card">Verified Medical Information</div>
+            </div>
+        </div>
     </section>
+
+    <!-- Contact CTA (New Redesign) -->
+    <section class="contact-cta enhanced">
+        <div class="cta-content">
+            <h2>Have Questions?</h2>
+            <p>We’re here to guide you with accurate, empowering, and judgment-free information.</p>
+            <button class="btn contact-btn">Contact Us</button>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const animatedElements = document.querySelectorAll(".fade-up");
+
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("show");
+                    }
+                });
+            }, { threshold: 0.2 });
+
+            animatedElements.forEach(el => observer.observe(el));
+        });
+    </script>
 
     <!-- Footer -->
     <footer class="footer">
@@ -183,23 +215,6 @@
             mission.addEventListener('mouseleave', () => {
                 mission.classList.remove('hovered');
             });
-        });
-    </script>
-
-
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const animatedElements = document.querySelectorAll(".fade-up");
-
-            const observer = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add("show");
-                    }
-                });
-            }, { threshold: 0.2 });
-
-            animatedElements.forEach(el => observer.observe(el));
         });
     </script>
 

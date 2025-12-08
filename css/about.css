@@ -503,3 +503,108 @@ body {
     opacity: 1;
     transform: translateY(0);
 }
+
+/* --- CREDIBILITY / PARTNERS SECTION --- */
+.credibility-section {
+    padding: 80px 20px;
+    text-align: center;
+    background: #ffffff;
+}
+
+.credibility-container {
+    max-width: 1000px;
+    margin: auto;
+}
+
+.credibility-section h2 {
+    font-size: 40px;
+    margin-bottom: 10px;
+    color: var(--main);
+}
+
+.credibility-section p {
+    font-size: 18px;
+    margin-bottom: 40px;
+    opacity: 0.8;
+}
+
+.credibility-logos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 25px;
+}
+
+.credibility-card {
+    background: var(--light);
+    padding: 22px;
+    border-radius: 18px;
+    font-weight: 600;
+    color: var(--main);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, background 0.3s ease;
+
+    /* PERFECT CENTERING */
+    display: flex;
+    align-items: center;      /* vertical center */
+    justify-content: center;  /* horizontal center */
+    text-align: center;       /* center text lines */
+}
+
+
+/* Hover animation */
+.credibility-card:hover {
+    background: var(--secondary);
+    color: white;
+    transform: translateY(-6px) scale(1.03);
+}
+
+/* --- CONTACT CTA REDESIGN --- */
+.contact-cta.enhanced {
+    padding: 120px 20px;
+    background: linear-gradient(135deg, var(--warm), var(--secondary));
+    color: white;
+    text-align: center;
+}
+
+.cta-content h2 {
+    font-size: 48px;
+    margin-bottom: 15px;
+    animation: fadeDown 0.7s ease;
+}
+
+.cta-content p {
+    font-size: 20px;
+    max-width: 700px;
+    margin: auto;
+    margin-bottom: 30px;
+    animation: fadeUp 0.7s ease;
+}
+
+.contact-btn {
+    background: white;
+    color: var(--warm);
+    font-size: 18px;
+    padding: 14px 36px;
+    border-radius: 40px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease, background 0.3s ease;
+    font-weight: 600;
+}
+
+.contact-btn:hover {
+    background: var(--light);
+    transform: scale(1.08);
+}
+
+/* Simple fade animations */
+@keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
