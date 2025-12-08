@@ -13,6 +13,44 @@ body {
     color: var(--dark);
 }
 
+.nav a {
+  position: relative;
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;              /* spacing between links */
+  font-size: 16px;
+  padding: 6px 10px;           /* optional padding for hover effect */
+  transition: all 0.3s ease;   /* smooth hover animations */
+}
+
+/* Hover effect: slide underline + color change + slight enlarge */
+.nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: #D14C74;
+  transition: width 0.3s ease;
+}
+
+.nav a:hover::after {
+  width: 100%;                 /* underline slides in */
+}
+
+.nav a:hover {
+  transform: scale(1.05);      /* slightly enlarge text */
+  color: #D14C74;              /* change text color */
+}
+
+.nav a.active::after { width: 100%; }
+.nav a.active {
+    transform: scale(1.05);
+    color: var(--secondary);
+    opacity: 0.7;
+}
+
 /* Header */
 .header {
     background: var(--main);
@@ -39,20 +77,9 @@ body {
 .logo .accent { color: var(--secondary); }
 .logo .logo-text-main { color: var(--warm); }
 
-.nav {
-    display: flex;
-    gap: 20px;
-}
-.nav a {
-    color: var(--light);
-    text-decoration: none;
-    font-size: 18px;
-    opacity: 0.9;
-}
-.nav a:hover,
-.nav .active {
-    opacity: 1;
-}
+.nav { display: flex; gap: 20px; }
+.nav a { color: var(--light); text-decoration: none; font-size: 18px; }
+.nav a:hover { opacity: 0.7; }
 
 /* Buttons */
 .btn {

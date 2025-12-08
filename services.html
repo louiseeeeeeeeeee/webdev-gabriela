@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gabriella - Membership</title>
     <link rel="stylesheet" href="css/services.css">
+    <link rel="stylesheet" href="css/main.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 
@@ -72,6 +73,30 @@
         </div>
     </section>
 
+    <!-- Membership Overlay -->
+<div id="membershipOverlay">
+  <div class="overlay-content">
+    <span id="closeMembership">&times;</span>
+    <form id="membershipForm">
+      <h2>Subscribe to <span id="selectedPlan">Plan Name</span></h2>
+      <input type="text" name="fullName" placeholder="Full Name" required>
+      <input type="email" name="email" placeholder="Email" required>
+
+       <label for="paymentMethod">Payment Method</label>
+      <select name="paymentMethod" id="paymentMethod" required>
+        <option value="">Select a method</option>
+        <option value="paypal">PayPal</option>
+        <option value="gcash">Gcash</option>
+        <option value="Maya">Maya</option>
+      </select>
+      <input type="number"name="paymentDetail" id="paymentDetail" placeholder="" style="display:none;" required>
+
+      <button type="submit" class="btn">Submit</button>
+    </form>
+  </div>
+</div>
+
+
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-container">
@@ -88,7 +113,71 @@
             <p class="footer-copy">© 2025 Gabriella Healthcare. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- LOGIN / REGISTER OVERLAY -->
+<div class="overlay" id="authOverlay">
+    <div class="auth-container">
+
+        <button class="close-btn" id="closeAuth">&times;</button>
+
+        <div class="auth-tabs">
+            <button class="tab active" id="loginTab">Log In</button>
+            <button class="tab" id="registerTab">Register</button>
+        </div>
+
+        <!-- LOGIN FORM -->
+        <form class="auth-form" id="loginForm">
+            <h2>Log In</h2>
+            <label>Email</label>
+            <input type="email" required>
+
+            <label>Password</label>
+            <input type="password" required>
+
+            <button type="submit" class="btn auth-btn">Log In</button>
+        </form>
+
+        <!-- REGISTRATION FORM -->
+        <form class="auth-form hidden" id="registerForm">
+            <h2>Create Account</h2>
+
+            <label>Username</label>
+            <input type="text" required>
+
+            <label>First Name</label>
+            <input type="text" required>
+
+            <label>Last Name</label>
+            <input type="text" required>
+
+            <label>Birthday</label>
+            <input type="date" required>
+
+            <label>Email Address</label>
+            <input type="email" required>
+
+            <h3>Address</h3>
+
+            <label>Street</label>
+            <input type="text">
+
+            <label>Barangay</label>
+            <input type="text">
+
+            <label>City</label>
+            <input type="text">
+
+            <label>Postal Code</label>
+            <input type="text">
+
+            <button type="submit" class="btn auth-btn">Register</button>
+        </form>
+
+    </div>
+</div>
+
     
+<script src="js/nav.js"></script>
 <script src="js/cta.js"></script>
 </body>
 </html>

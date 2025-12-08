@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gabriella - Contact Us</title>
     <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="css/main.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -91,5 +92,69 @@
         </div>
     </footer>
 
+    <!-- LOGIN / REGISTER OVERLAY -->
+<div class="overlay" id="authOverlay">
+    <div class="auth-container">
+
+        <button class="close-btn" id="closeAuth">&times;</button>
+
+        <div class="auth-tabs">
+            <button class="tab active" id="loginTab">Log In</button>
+            <button class="tab" id="registerTab">Register</button>
+        </div>
+
+        <!-- LOGIN FORM -->
+        <form class="auth-form" id="loginForm">
+            <h2>Log In</h2>
+            <label>Email</label>
+            <input type="email" required>
+
+            <label>Password</label>
+            <input type="password" required>
+
+            <button type="submit" class="btn auth-btn">Log In</button>
+        </form>
+
+        <!-- REGISTRATION FORM -->
+        <form class="auth-form hidden" id="registerForm">
+            <h2>Create Account</h2>
+
+            <label>Username</label>
+            <input type="text" required>
+
+            <label>First Name</label>
+            <input type="text" required>
+
+            <label>Last Name</label>
+            <input type="text" required>
+
+            <label>Birthday</label>
+            <input type="date" required>
+
+            <label>Email Address</label>
+            <input type="email" required>
+
+            <h3>Address</h3>
+
+            <label>Street</label>
+            <input type="text">
+
+            <label>Barangay</label>
+            <input type="text">
+
+            <label>City</label>
+            <input type="text">
+
+            <label>Postal Code</label>
+            <input type="text">
+
+            <button type="submit" class="btn auth-btn">Register</button>
+        </form>
+
+    </div>
+</div>
+
+    <script src="js/nav.js"></script>
+    <script src="js/cta.js" defer></script>
 </body>
 </html>

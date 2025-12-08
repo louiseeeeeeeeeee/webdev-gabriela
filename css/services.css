@@ -1,74 +1,7 @@
-/* Colors */
-:root {
-    --main: #020f5b;      /* deep blue */
-    --secondary:#D14C74; /* deep wine red */
-    --warm: #C02727;      /* dark red */
-    --light: #F4DFDF;     /* warm blush */
-    --dark: #141414;
-}
-
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body {
-    font-family: "Poppins", sans-serif;
-    color: var(--dark);
-}
-
-/* Header (same as home) */
-.header {
-    background: var(--main);
-    padding: 20px;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    width: 100%;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-}
-
-.header-inner {
-    max-width: 1200px;
-    margin: auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-}
-
-.logo {
-    font-size: 32px;
-    font-weight: 600;
-    color: var(--light);
-}
-.logo span { color: var(--main); }
-.logo .accent { color: var(--secondary); }
-.logo .logo-text-main { color: var(--warm); }
-
-.nav {
-    display: flex;
-    gap: 20px;
-}
-.nav a {
-    color: var(--light);
-    text-decoration: none;
-    font-size: 18px;
-}
-.nav a.active {
-    text-decoration: underline;
-}
-.nav a:hover { opacity: 0.7; }
-
-.btn {
-    padding: 12px 28px;
-    border: none;
-    border-radius: 40px;
-    background: var(--secondary);
-    color: white;
-    cursor: pointer;
-    font-size: 16px;
-}
-.btn.warm { background: var(--warm); }
-.btn:hover { opacity: 0.9; }
-
-/* Hero (same style as home hero but dynamic text) */
+/* ------------------ SERVICES PAGE STYLES ------------------ */
+/* =========================
+   5. Hero Section
+========================= */
 .hero {
     max-width: 1200px;
     margin: 40px auto;
@@ -78,16 +11,13 @@ body {
     color: white;
     text-align: center;
 }
-.hero h1 {
-    font-size: 48px;
-    margin-bottom: 15px;
-}
-.hero p {
-    font-size: 18px;
-    margin-bottom: 25px;
-}
 
-/* Membership Cards */
+.hero h1 { font-size: 48px; margin-bottom: 15px; }
+.hero p { font-size: 18px; margin-bottom: 25px; }
+
+/* =========================
+   6. Membership Cards
+========================= */
 .membership {
     max-width: 1200px;
     margin: 60px auto;
@@ -95,7 +25,7 @@ body {
     gap: 30px;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
-/* PLAN CARDS – COMPACT THEN EXPAND ON HOVER */
+
 .plan-card {
     position: relative;
     overflow: hidden;
@@ -105,22 +35,15 @@ body {
     box-shadow: 0 10px 20px rgba(0,0,0,0.08);
     cursor: pointer;
     padding: 30px 40px;
-    height: 160px; /* compact height: title + price */
+    height: 160px;
     transition: all 0.4s ease;
 }
 
-/* Highlighted Plan */
-.plan-card.highlight {
-    border-left: 10px solid var(--warm);
-}
+.plan-card.highlight { border-left: 10px solid var(--warm); }
 
-/* Title and price always visible */
 .plan-card h2,
-.plan-card .price {
-    margin-bottom: 10px;
-}
+.plan-card .price { margin-bottom: 10px; }
 
-/* Hide features & button initially */
 .plan-card ul,
 .plan-card button {
     opacity: 0;
@@ -128,32 +51,25 @@ body {
     overflow: hidden;
     transform: translateY(20px);
     transition: all 0.4s ease;
-    pointer-events: none; /* makes button unclickable when hidden */
+    pointer-events: none;
 }
 
-/* Hover: expand card height */
 .plan-card:hover {
-    height: auto; /* expands naturally */
+    height: auto;
     padding: 40px;
     transform: scale(1.03);
     box-shadow: 0 15px 30px rgba(0,0,0,0.2);
 }
 
-/* Hover: reveal features & button */
 .plan-card:hover ul,
 .plan-card:hover button {
     opacity: 1;
     max-height: 500px;
     transform: translateY(0);
-    pointer-events: auto; /* enables button clicks */
-<<<<<<< HEAD
-    transition: all 2.0s ease-in-out;
-=======
-    transition: all 2.0s ease-in-out; /* delay for smooth reveal */
->>>>>>> 94c05b2351a643267977449f3a88f4cab8e417a0
+    pointer-events: auto;
+    transition: all 1.5s ease-in-out;
 }
 
-/* Feature list styling */
 .plan-card ul {
     list-style: none;
     margin-bottom: 25px;
@@ -183,7 +99,7 @@ body {
 }
 
 .plan-card button {
-    transition: all 0.3s ease;
+    transition: all 0.1s ease;
 }
 
 .plan-card button:hover {
@@ -191,7 +107,67 @@ body {
     transform: translateY(-2px);
 }
 
-/* Footer (same as home) */
+#membershipOverlay {
+    display: none;
+    position: fixed;
+    top:0; left:0; right:0; bottom:0;
+    background: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+#membershipOverlay .overlay-content {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+    position: relative;
+}
+
+#closeMembership {
+    position: absolute;
+    top:10px;
+    right:15px;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+#membershipForm input {
+    display: block;
+    width: 90%;
+    margin: 15px auto;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+#membershipForm button {
+    margin-top: 10px;
+}
+
+#membershipForm label {
+    display: block;
+    text-align: left;
+    margin: 10px 5%;
+    font-weight: 500;
+}
+
+#membershipForm select {
+    display: block;
+    width: 90%;
+    margin: 5px auto 15px auto;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background: white;
+}
+
+/* =========================
+   7. Footer
+========================= */
 .footer {
     width: 100%;
     background-color: var(--main);
@@ -231,10 +207,11 @@ body {
     opacity: 0.8;
 }
 
-/* Responsive */
+/* =========================
+   8. Responsive Styles
+========================= */
 @media (max-width: 768px) {
     .header-inner { flex-direction: column; }
-    .nav { flex-wrap: wrap; justify-content: center; }
     .hero { padding: 30px; }
     .hero h1 { font-size: 32px; }
 }
