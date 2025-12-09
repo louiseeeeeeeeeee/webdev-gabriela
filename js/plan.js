@@ -53,7 +53,6 @@ planButtons.forEach(btn => {
         const paymentInfo = paymentDetail.value.trim();
 
         if (!payment) {
-            alert("Please select a payment method.");
             return;
         }
 
