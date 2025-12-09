@@ -27,7 +27,7 @@ body { font-family: "Poppins", sans-serif; color: var(--dark); line-height: 1.6;
 
 /* Buttons */
 .btn { padding: 12px 28px; border-radius: 40px; font-size: 16px; font-weight: 500; cursor: pointer; border: 2px solid transparent; transition: all 0.3s ease; }
-.btn.warm { background: var(--warm); color: white; }
+.btn.warm { background: var(--warm); color: white; text-decoration: none;}
 .btn.outline { background: transparent; color: var(--light); border: 2px solid var(--light); }
 .btn:hover { opacity: 0.9; }
 
@@ -260,3 +260,13 @@ body { font-family: "Poppins", sans-serif; color: var(--dark); line-height: 1.6;
     }
 }
 
+/* smooth scrolling for anchor links */
+html {
+    scroll-behavior: smooth;
+}
+
+/* ensure anchored target is visible below sticky header */
+.features-title {
+    /* set to your header height (adjust as needed) */
+    scroll-margin-top: var(--header-height, 100px);
+}
