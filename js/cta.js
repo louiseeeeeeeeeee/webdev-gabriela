@@ -159,4 +159,29 @@ function updateAuthButton() {
 // Initialize auth UI
 updateAuthButton();
 
+// 4. FORM SUBMISSION
+function extractDisplayNameFrom(form) {
+    const candidates = form.querySelectorAll('input[name], input[id]');
+    for (const input of candidates) {
+        const nameAttr = (input.name || input.id || '').toLowerCase();
+        if (['name','fullname','displayname','username'].some(k => nameAttr.includes(k)) && input.value.trim()) return input.value.trim();
+    }
+    const email = form.querySelector('input[type="email"]');
+    if (email && email.value) return email.value.split('@')[0];
+    for (const input of candidates) if (input.value && input.value.trim()) return input.value.trim();
+    return 'User';
+}
 
+loginForm?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    setStoredUser({ name: extractDisplayNameFrom(loginForm) });
+    authOverlay.style.display = 'none';
+    updateAuthButton();
+});
+
+registerForm?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    setStoredUser({ name: extractDisplayNameFrom(registerForm) });
+    authOverlay.style.display = 'none';
+    updateAuthButton();
+});
