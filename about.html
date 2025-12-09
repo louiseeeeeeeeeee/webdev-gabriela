@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta-name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - Gabriella Healthcare</title>
     <link rel="stylesheet" href="css/about.css">
+    <link rel="stylesheet" href="css/main.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 
@@ -29,9 +30,9 @@
 
     <!-- Hero / Banner -->
     <section class="about-hero">
-        <div class="overlay">
+        <div class="about-hero-content">
             <h1>About Gabriella Healthcare</h1>
-            <p>Empowering young women with accessible, accurate, and stigma-free sexual health education.</p>
+            <p>Empowering Filipino youth with accessible, accurate, and stigma-free sexual health education.</p>
         </div>
     </section>
 
@@ -40,9 +41,16 @@
         <div class="mission-content">
             <h2>Our Mission</h2>
             <p>
+<<<<<<< HEAD
                 The mission of the project is to educate young Filipinos by promoting awareness and prevention regarding reproductive health. 
                 It also aims to reduce discrimination surrounding the topic and to provide accessible 
                 information about various reproductive health products.
+=======
+                Gabriella Healthcare aims to educate young Filipinos
+                by promoting awareness and prevention regarding reproductive health. 
+                We also aims to reduce discrimination surrounding the topic and 
+                to provide accessible information about various reproductive health products.
+>>>>>>> 1d71c74a95dc8f26bbe0a6b497e82dada06d320f
             </p>
         </div>
 
@@ -84,9 +92,16 @@
         <div class="vision-content">
             <h2>Our Vision</h2>
             <p>
+<<<<<<< HEAD
              To completely eradicate the stigma in HIV patients and to create a future for young Filipinos
              where no one suffers in silence, and where compassion, education, 
              and healthcare are within reach of everyone in need.
+=======
+            To completely eradicate the stigma in HIV patients 
+            and to create a future for young Filipinos where 
+            no one suffers in silence, and where compassion, education, 
+            and healthcare are within reach of everyone in need.
+>>>>>>> 1d71c74a95dc8f26bbe0a6b497e82dada06d320f
             </p>
         </div>
     </section>
@@ -177,7 +192,7 @@
                 <h2>Have Questions?</h2>
                 <p>We’re here for you!</p>
                 <p>We’re here to guide you with accurate, empowering, and judgment-free information.</p>
-                <a href="#" class="contact-btn">Contact Us</a>
+                <a href="contact.html" class="contact-btn">Contact Us</a>
             </div>
         </div>
 
@@ -200,7 +215,7 @@
     </script>
 
 
-    <!-- Footer -->
+   <!-- Footer -->
     <footer class="footer">
         <div class="footer-container">
             <p class="footer-logo">Gabriella</p>
@@ -208,14 +223,76 @@
             <nav class="footer-nav">
                 <a href="index.html" class="gradient-underline">Home</a>
                 <a href="about.html" class="active">About</a>
-                <a href="#" class="gradient-underline">Membership</a>
-                <a href="#" class="gradient-underline">Learn</a>
-                <a href="#" class="gradient-underline">Contact</a>
+                <a href="services.html" class="gradient-underline">Membership</a>
+                <a href="learn.html" class="gradient-underline">Learn</a>
+                <a href="contact.html" class="gradient-underline">Contact</a>
             </nav>
 
             <p class="footer-copy">© 2025 Gabriella Healthcare. All rights reserved.</p>
         </div>
     </footer>
+    
+    <!-- LOGIN / REGISTER OVERLAY -->
+<div class="overlay" id="authOverlay">
+    <div class="auth-container">
+
+        <button class="close-btn" id="closeAuth">&times;</button>
+
+        <div class="auth-tabs">
+            <button class="tab active" id="loginTab">Log In</button>
+            <button class="tab" id="registerTab">Register</button>
+        </div>
+
+        <!-- LOGIN FORM -->
+        <form class="auth-form" id="loginForm">
+            <h2>Log In</h2>
+            <label>Email</label>
+            <input type="email" required>
+
+            <label>Password</label>
+            <input type="password" required>
+
+            <button type="submit" class="btn auth-btn">Log In</button>
+        </form>
+
+        <!-- REGISTRATION FORM -->
+        <form class="auth-form hidden" id="registerForm">
+            <h2>Create Account</h2>
+
+            <label>Username</label>
+            <input type="text" required>
+
+            <label>First Name</label>
+            <input type="text" required>
+
+            <label>Last Name</label>
+            <input type="text" required>
+
+            <label>Birthday</label>
+            <input type="date" required>
+
+            <label>Email Address</label>
+            <input type="email" required>
+
+            <h3>Address</h3>
+
+            <label>Street</label>
+            <input type="text">
+
+            <label>Barangay</label>
+            <input type="text">
+
+            <label>City</label>
+            <input type="text">
+
+            <label>Postal Code</label>
+            <input type="text">
+
+            <button type="submit" class="btn auth-btn">Register</button>
+        </form>
+
+    </div>
+</div>
 
     <!-- Mission Hover Script -->
     <script>
@@ -231,6 +308,9 @@
             });
         });
     </script>
+
+    <script src="js/cta.js"></script>
+    <script src="js/nav.js"></script>
 
 </body>
 </html>

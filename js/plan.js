@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const paymentMethod = document.getElementById("paymentMethod");
     const paymentDetail = document.getElementById("paymentDetail");
 
-    // Show paymentDetail input only when selected
+    // Show paymentDetail input only when "method" is selected
     paymentMethod.addEventListener("change", () => {
         const method = paymentMethod.value;
         if (!method) {
@@ -53,7 +53,6 @@ planButtons.forEach(btn => {
         const paymentInfo = paymentDetail.value.trim();
 
         if (!payment) {
-            alert("Please select a payment method.");
             return;
         }
 
