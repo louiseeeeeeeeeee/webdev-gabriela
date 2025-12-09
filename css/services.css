@@ -1,7 +1,5 @@
 /* ------------------ SERVICES PAGE STYLES ------------------ */
-/* =========================
-   5. Hero Section
-========================= */
+/* Hero Section */
 .hero {
     max-width: 1200px;
     margin: 40px auto;
@@ -15,9 +13,7 @@
 .hero h1 { font-size: 48px; margin-bottom: 15px; }
 .hero p { font-size: 18px; margin-bottom: 25px; }
 
-/* =========================
-   6. Membership Cards
-========================= */
+/* Membership Cards */
 .membership {
     max-width: 1200px;
     margin: 60px auto;
@@ -161,11 +157,10 @@
     font-weight: 600;
     cursor: pointer;
     transition: all 0.4s ease;
-    background-size: cover;      /* make image cover the button */
+    background-size: cover;      
     background-position: center; /* center the image */
 }
 
-/* Hover: use image instead of plain color */
 .btn.warm:hover {
     background: palevioletred;
     background-size: cover;
@@ -246,9 +241,7 @@
     background: white;
 }
 
-/* =========================
-   7. Footer
-========================= */
+/* Footer */
 .footer {
     width: 100%;
     background-color: var(--main);
@@ -288,9 +281,7 @@
     opacity: 0.8;
 }
 
-/* =========================
-   8. Responsive Styles
-========================= */
+/* Responsive Styles */
 @media (max-width: 768px) {
     .header-inner { flex-direction: column; }
     .hero { padding: 30px; }
