@@ -75,3 +75,79 @@ planButtons.forEach(btn => {
         paymentDetail.required = false;
     });
 });
+
+// Membership Popup Functionality
+const planButtons = document.querySelectorAll(".plan-card button");
+const membershipOverlay = document.getElementById("membershipOverlay");
+const closeMembership = document.getElementById("closeMembership");
+const selectedPlanEl = document.getElementById("selectedPlan");
+
+planButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+        const planName = btn.closest(".plan-card").querySelector("h2").textContent;
+        selectedPlanEl.textContent = planName;
+        membershipOverlay.style.display = "flex";
+    });
+});
+
+// Close overlay
+closeMembership.addEventListener("click", () => {
+    membershipOverlay.style.display = "none";
+});
+
+// Close overlay if clicked outside the content
+membershipOverlay.addEventListener("click", (e) => {
+    if (e.target === membershipOverlay) {
+        membershipOverlay.style.display = "none";
+    }
+});
+
+const paymentMethod = document.getElementById("paymentMethod");
+const paymentDetail = document.getElementById("paymentDetail");
+
+paymentMethod.addEventListener("change", () => {
+    const method = paymentMethod.value;
+
+    if (!method) {
+        paymentDetail.style.display = "none";
+        paymentDetail.value = "";
+        paymentDetail.placeholder = "";
+        return;
+    }
+
+    paymentDetail.style.display = "block";
+
+    switch(method) {
+        case "creditCard":
+            paymentDetail.placeholder = "Enter credit card number";
+            break;
+        case "paypal":
+            paymentDetail.placeholder = "Enter PayPal email";
+            break;
+        case "gcash":
+            paymentDetail.placeholder = "Enter Gcash number";
+            break;
+        case "bankTransfer":
+            paymentDetail.placeholder = "Enter bank account number";
+            break;
+        default:
+            paymentDetail.placeholder = "Enter payment info";
+    }
+});
+// Form submission (just simulate success)
+document.getElementById("membershipForm").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const name = e.target.fullName.value;
+    const email = e.target.email.value;
+    const plan = document.getElementById("selectedPlan").textContent;
+    const payment = e.target.paymentMethod.value;
+
+    if (!payment) {
+        alert("Please select a payment method.");
+        return;
+    }
+
+    alert(`Thank you, ${name}! We will contact you at ${email}.\nPlan: ${plan}\nPayment Method: ${payment}.`);
+    membershipOverlay.style.display = "none";
+    e.target.reset();
+});
