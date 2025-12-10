@@ -52,10 +52,6 @@ planButtons.forEach(btn => {
         const payment = paymentMethod.value;
         const paymentInfo = paymentDetail.value.trim();
 
-        if (!payment) {
-            return;
-        }
-
         if (!paymentInfo) {
             alert("Please provide your payment details.");
             return;
