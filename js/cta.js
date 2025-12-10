@@ -1,6 +1,6 @@
-// =======================
+
 // 1. DOM CONTENT LOADED
-// =======================
+// This will hover the image animation when in view in home page cta section
 document.addEventListener('DOMContentLoaded', () => {
     // IntersectionObserver for any .cta-content animations
     const targets = document.querySelectorAll('.cta-content');
@@ -22,9 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// =======================
 // 2. LOGIN / REGISTER OVERLAY
-// =======================
 const loginBtnSelector = ".login";
 let loginBtn = document.querySelector(loginBtnSelector);
 const authOverlay = document.getElementById("authOverlay");
@@ -55,28 +53,34 @@ loginTab?.addEventListener("click", () => {
     loginTab.classList.add("active");
 });
 
-// =======================
 // 3. AUTH STATE MANAGEMENT
-// =======================
+
+// Simple localStorage-based auth state. It checks the browser storage for an item called 'auth_user'.
+// If found, it assumes the user is logged in and displays their name in a dropdown menu.
+// If not found, it shows the login button.
 function getStoredUser() {
     try { return JSON.parse(localStorage.getItem('auth_user')); }
     catch { return null; }
 }
 
+// Store user object in localStorage
 function setStoredUser(user) {
     localStorage.setItem('auth_user', JSON.stringify(user));
 }
-
+// Clear stored user (logout)
 function clearStoredUser() {
     localStorage.removeItem('auth_user');
 }
 
+
+
 // Update login button to user dropdown if logged in
 function updateAuthButton() {
     loginBtn = document.querySelector(loginBtnSelector);
-    const existingDropdown = document.querySelector('.user-dropdown');
+    const existingDropdown = document.querySelector('.user-dropdown'); //will change css design for logged user state
     const user = getStoredUser();
 
+    //if logged out, restore login button
     if (!user) {
         // Restore original login button if logged out
         if (existingDropdown) {
@@ -121,6 +125,7 @@ function updateAuthButton() {
     `;
 
     // Toggle dropdown
+    //This prevents the click event from ALSO triggering the “close the dropdown” listener in the document click event.
     btn.addEventListener('click', (e) => {
         e.stopPropagation();
         const expanded = btn.getAttribute('aria-expanded') === 'true';
@@ -129,6 +134,7 @@ function updateAuthButton() {
     });
 
     // Logout
+    // It removes user data from localStorage, hides the dropdown, and reloads the page to reflect the logged-out state.    
     menu.querySelector('.logout-btn').addEventListener('click', () => {
         clearStoredUser();
         authOverlay.style.display = 'none';
@@ -153,9 +159,7 @@ function updateAuthButton() {
 // Initialize auth UI
 updateAuthButton();
 
-// =======================
 // 4. FORM SUBMISSION
-// =======================
 function extractDisplayNameFrom(form) {
     const candidates = form.querySelectorAll('input[name], input[id]');
     for (const input of candidates) {
@@ -181,79 +185,3 @@ registerForm?.addEventListener('submit', (e) => {
     authOverlay.style.display = 'none';
     updateAuthButton();
 });
-// Membership Popup Functionality
-const planButtons = document.querySelectorAll(".plan-card button");
-const membershipOverlay = document.getElementById("membershipOverlay");
-const closeMembership = document.getElementById("closeMembership");
-const selectedPlanEl = document.getElementById("selectedPlan");
-
-planButtons.forEach(btn => {
-    btn.addEventListener("click", () => {
-        const planName = btn.closest(".plan-card").querySelector("h2").textContent;
-        selectedPlanEl.textContent = planName;
-        membershipOverlay.style.display = "flex";
-    });
-});
-
-// Close overlay
-closeMembership.addEventListener("click", () => {
-    membershipOverlay.style.display = "none";
-});
-
-// Close overlay if clicked outside the content
-membershipOverlay.addEventListener("click", (e) => {
-    if (e.target === membershipOverlay) {
-        membershipOverlay.style.display = "none";
-    }
-});
-
-const paymentMethod = document.getElementById("paymentMethod");
-const paymentDetail = document.getElementById("paymentDetail");
-
-paymentMethod.addEventListener("change", () => {
-    const method = paymentMethod.value;
-
-    if (!method) {
-        paymentDetail.style.display = "none";
-        paymentDetail.value = "";
-        paymentDetail.placeholder = "";
-        return;
-    }
-
-    paymentDetail.style.display = "block";
-
-    switch(method) {
-        case "creditCard":
-            paymentDetail.placeholder = "Enter credit card number";
-            break;
-        case "paypal":
-            paymentDetail.placeholder = "Enter PayPal email";
-            break;
-        case "gcash":
-            paymentDetail.placeholder = "Enter Gcash number";
-            break;
-        case "bankTransfer":
-            paymentDetail.placeholder = "Enter bank account number";
-            break;
-        default:
-            paymentDetail.placeholder = "Enter payment info";
-    }
-});
-// Form submission (just simulate success)
-document.getElementById("membershipForm").addEventListener("submit", (e) => {
-    e.preventDefault();
-    const name = e.target.fullName.value;
-    const email = e.target.email.value;
-    const plan = document.getElementById("selectedPlan").textContent;
-    const payment = e.target.paymentMethod.value;
-
-    if (!payment) {
-        alert("Please select a payment method.");
-        return;
-    }
-
-    alert(`Thank you, ${name}! We will contact you at ${email}.\nPlan: ${plan}\nPayment Method: ${payment}.`);
-    membershipOverlay.style.display = "none";
-    e.target.reset();
-});
-

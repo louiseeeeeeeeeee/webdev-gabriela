@@ -59,22 +59,61 @@
 }
 
 /* Features Section */
+
+
 .features {
-    max-width: 1200px;
-    margin: 80px auto;
     display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center; /* centers the title and grid */
+    padding: 60px 20px;
+    gap: 32px;
+}
+
+.features-title {
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--dark, #07103a);
+    margin: 0;
     text-align: center;
 }
+
+/* keep feature-card styling but apply grid to the new wrapper */
+.feature-grid {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    align-items: start;
+}
+
+
+
+/* Responsive: stack on smaller screens */
+@media (max-width: 900px) {
+    .feature-grid { grid-template-columns: repeat(2, 1fr); }
+    .features { padding: 48px 16px; }
+}
+
+@media (max-width: 560px) {
+    .feature-grid { grid-template-columns: 1fr; }
+    .features-title { font-size: 24px; }
+}
+
 .feature-card {
     flex: 1 1 300px;
     padding: 30px;
     border-radius: 25px;
     background: var(--light);
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
 }
+
+.feature-card:hover {
+    box-shadow: 0 8px 16px rgba(0,0,0,0.35);
+}
+
 .feature-card img { 
     width: 120px; 
     height: auto;
@@ -83,15 +122,15 @@
     
 }
 .feature-card h3 { font-size: 24px; margin-bottom: 10px; }
-.feature-card p { font-size: 16px; }
+.feature-card p { font-size: 16px; text-align: justify; }
 
 /* Info Cards */
-.info { max-width: 1200px; margin: 60px auto; display: grid; gap: 30px; }
+.info { max-width: 1200px; margin: 60px auto; display:flex; flex-direction: column; gap: 30px; }
 .info-card { padding: 40px; border-radius: 25px; background: var(--light); }
 .info-card.left { border-left: 10px solid var(--secondary); }
 .info-card.right { border-left: 10px solid var(--warm); }
-.info-card h2 { font-size: 32px; margin-bottom: 15px; }
-.info-card p { font-size: 18px; }
+.info-card h2 { font-size: 36px; margin-bottom: 15px;}
+.info-card p { font-size: 18px; text-decoration: none; }
 
 /* Call to Action */
 .cta-cards {
@@ -115,7 +154,7 @@
 
 .cta-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.35);
 }
 
 .cta-card img {
@@ -131,6 +170,7 @@
 .cta-card p {
     font-size: 16px;
     margin-bottom: 20px;
+    text-decoration: none;
 }
 
 @media (max-width: 1024px) {
@@ -237,4 +277,5 @@
     .hero-content h1 { font-size: 36px; }
     .features { flex-direction: column; gap: 20px; }
 }
+
 
