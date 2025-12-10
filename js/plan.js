@@ -61,8 +61,7 @@ planButtons.forEach(btn => {
             `Thank you, ${name}!\n` +
             `We will contact you at ${email}.\n` +
             `Plan: ${plan} ${price}\n` +
-            `Payment Method: ${payment}\n` +
-            `Payment Info: ${paymentInfo}`
+            `Payment Method: ${payment}\n`
         );
 
         membershipOverlay.style.display = "none";
@@ -129,21 +128,4 @@ paymentMethod.addEventListener("change", () => {
         default:
             paymentDetail.placeholder = "Enter payment info";
     }
-});
-// Form submission (just simulate success)
-document.getElementById("membershipForm").addEventListener("submit", (e) => {
-    e.preventDefault();
-    const name = e.target.fullName.value;
-    const email = e.target.email.value;
-    const plan = document.getElementById("selectedPlan").textContent;
-    const payment = e.target.paymentMethod.value;
-
-    if (!payment) {
-        alert("Please select a payment method.");
-        return;
-    }
-
-    alert(`Thank you, ${name}! We will contact you at ${email}.\nPlan: ${plan}\nPayment Method: ${payment}.`);
-    membershipOverlay.style.display = "none";
-    e.target.reset();
 });

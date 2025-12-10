@@ -40,7 +40,15 @@
     position: absolute;
     inset: -6px;
     border-radius: 30px;
-    background: conic-gradient(#ff4545, #00ff99, #006aff, #ff0095, #ff4545);
+background: conic-gradient(
+    #d25574,   /* your warm pink */
+    #C02727,   /* your warm red */
+    #E8B344,   /* gold accent */
+    #C9D6FF,   /* soft periwinkle */
+    #0a1a57,   /* deep navy */
+    #a060c8,   /* soft violet */
+    #d25574    /* back to pink */
+);
     filter: blur(6px);
     opacity: 0;
     transition: opacity 0.3s ease;
@@ -102,7 +110,7 @@
 .article-slider {
     overflow-x: hidden;   /* prevent left & right bleeding */
     overflow-y: visible;  /* allow top/bottom to bleed */
-    padding-top: 15px; /* ← prevents top cropping */
+    padding-top: 15px; /* prevents top cropping */
     width: 100%;
     position: relative;
 }

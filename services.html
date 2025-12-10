@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/services.css">
     <link rel="stylesheet" href="css/main.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 </head>
 
 <body> 
@@ -39,9 +40,9 @@
         <h2>Basic Plan</h2>
         <p class="price">₱499/month</p>
         <ul>
-            <li>2 Online Consultations / month</li>
-            <li>Appointment Booking</li>
-            <li>Basic Health Monitoring</li>
+            <li>✔ 2 Online Consultations / month</li>
+            <li>✔ Appointment Booking</li>
+            <li>✔ Basic Health Monitoring</li>
             <li>✘ No In-Person Checkups</li>
         </ul>
         <button class="btn warm">Choose Plan</button>
@@ -72,6 +73,21 @@
     </div>
 </section>
 
+<!-- Testing Centers Section -->
+<section class="testing-centers">
+    <h2>Nearest HIV Testing Centers</h2>
+    <p>Based on your current location</p>
+
+    <div class="map-container">
+        <div id="map"></div>
+
+        <div id="centerList" class="center-list">
+            <p>Loading nearby centers...</p>
+        </div>
+    </div>
+</section>
+
+
 <!-- Membership Overlay -->
 <div id="membershipOverlay">
     <div class="overlay-content">
@@ -101,23 +117,23 @@
 </div>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-container">
-            <p class="footer-logo">Gabriella</p>
+<footer class="footer">
+    <div class="footer-container">
+        <p class="footer-logo">Gabriella</p>
+        
+        <nav class="footer-nav">
+            <a href="index.html" class="gradient-underline">Home</a>
+            <a href="about.html" class="active">About</a>
+            <a href="services.html" class="gradient-underline">Membership</a>
+            <a href="learn.html" class="gradient-underline">Learn</a>
+            <a href="contact.html" class="gradient-underline">Contact</a>
+        </nav>
+        
+        <p class="footer-copy">© 2025 Gabriella Healthcare. All rights reserved.</p>
+    </div>
+</footer>
 
-            <nav class="footer-nav">
-                <a href="index.html" class="gradient-underline">Home</a>
-                <a href="about.html" class="active">About</a>
-                <a href="services.html" class="gradient-underline">Membership</a>
-                <a href="learn.html" class="gradient-underline">Learn</a>
-                <a href="contact.html" class="gradient-underline">Contact</a>
-            </nav>
-
-            <p class="footer-copy">© 2025 Gabriella Healthcare. All rights reserved.</p>
-        </div>
-    </footer>
-
-<!-- LOGIN / REGISTER OVERLAY -->
+ <!-- LOGIN / REGISTER OVERLAY -->
 <div class="overlay" id="authOverlay">
     <div class="auth-container">
 
@@ -179,6 +195,8 @@
     </div>
 </div>
 
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="js/testing-centers.js"></script>
 <script src="js/plan.js"></script>
 <script src="js/nav.js"></script>
 <script src="js/cta.js"></script>
