@@ -40,16 +40,31 @@
     border-left: 10px solid var(--secondary);
     box-shadow: 0 10px 20px rgba(0,0,0,0.08);
     padding: 30px 40px;
-    transition: none;                  /* no hover animations */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     overflow: visible;                 /* important: show overflowing content */
     cursor: default;
 }
 
-/* optional highlighted border */
-.plan-card.highlight { 
-    border-left-color: var(--warm);
+.plan-card:hover {
+    transform: translateY(-8px) scale(1.03); /* lift & slightly grow */
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.18); /* deeper shadow */
+    border-left-color: #C02727; /* optional: change accent border color on hover */
 }
 
+/* Optional: subtle glow using pseudo-element */
+.plan-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 25px;
+    box-shadow: 0 0 20px rgba(192, 39, 39, 0); /* start invisible */
+    transition: box-shadow 0.3s ease;
+    pointer-events: none;
+}
+
+.plan-card:hover::after {
+    box-shadow: 0 0 25px rgba(192, 39, 39, 0.25); /* soft red glow */
+}
 /* headers */
 .plan-card h2,
 .plan-card .price { 
@@ -143,7 +158,7 @@
 
 /* Hover effect */
 #membershipOverlay .btn:hover {
-    background: #540000;   c32323ef    /* slightly darker red on hover */
+    background: #540000;    /* slightly darker red on hover */
 }
 /* Warm buttons */
 .btn.warm {
