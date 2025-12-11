@@ -132,6 +132,51 @@
 .info-card h2 { font-size: 36px; margin-bottom: 15px;}
 .info-card p { font-size: 18px; text-decoration: none; }
 
+/* Container for plan cards in a row */
+.plan-container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px; /* space between cards */
+    flex-wrap: wrap; /* wrap to next line on smaller screens */
+    margin-top: 1rem;
+    justify-content: center; /* center the plan cards */
+}
+
+/* Optional: keep your existing plan card styles */
+.info-card.plan {
+    flex: 1 1 200px; /* grow, shrink, base width */
+    max-width: 250px; /* optional limit */
+    padding: 1rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #fff; /* text color for contrast */
+}
+
+.info-card.plan p{
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+/* Individual plan colors */
+.info-card.plan:nth-child(1) { /* Basic Plan */
+    background-color: var(--main); 
+}
+
+.info-card.plan:nth-child(2) { /* Standard Plan */
+    background-color: var(--secondary); 
+}
+
+.info-card.plan:nth-child(3) { /* Premium Plan */
+    background-color: var(--dark); 
+}
+
+.info-card.plan:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+
 /* Call to Action */
 .cta-cards {
     max-width: 1200px;
