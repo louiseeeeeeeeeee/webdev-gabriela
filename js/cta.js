@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // 2. LOGIN / REGISTER OVERLAY
+// this finds elements related to login/register functionality from the index.html
 const loginBtnSelector = ".login";
 let loginBtn = document.querySelector(loginBtnSelector);
 const authOverlay = document.getElementById("authOverlay");
@@ -33,12 +34,15 @@ const loginForm = document.getElementById("loginForm");
 const registerForm = document.getElementById("registerForm");
 
 // Open overlay
+//The ?. means “only do this if loginBtn exists. When the button is clicked, it shows the auth overlay.
 loginBtn?.addEventListener("click", () => authOverlay.style.display = "flex");
 
 // Close overlay
+// When the X button is clicked, it hides the auth overlay.
 closeAuth?.addEventListener("click", () => authOverlay.style.display = "none");
 
 // Switch tabs
+//When you switch to Register: Hide login form, Show register form, Highlight the correct tab
 registerTab?.addEventListener("click", () => {
     loginForm.classList.add("hidden");
     registerForm.classList.remove("hidden");
@@ -46,6 +50,7 @@ registerTab?.addEventListener("click", () => {
     registerTab.classList.add("active");
 });
 
+//Same but for Login tab
 loginTab?.addEventListener("click", () => {
     registerForm.classList.add("hidden");
     loginForm.classList.remove("hidden");
@@ -74,7 +79,7 @@ function clearStoredUser() {
 
 
 
-// Update login button to user dropdown if logged in
+// this is a function where it Updates login button to user dropdown if logged in
 function updateAuthButton() {
     loginBtn = document.querySelector(loginBtnSelector);
     const existingDropdown = document.querySelector('.user-dropdown'); //will change css design for logged user state
@@ -116,13 +121,13 @@ function updateAuthButton() {
     btn.setAttribute('aria-expanded', 'false');
     btn.textContent = user.name || user.username || 'User';
 
-    const menu = document.createElement('div');
+    const menu = document.createElement('div'); //creating a new <div> element in the DOM using JavaScript.
     menu.className = 'user-menu';
     menu.style.display = 'none';
     menu.innerHTML = `
         <a href="/profile.html" class="profile-link">Visit profile</a>
         <button type="button" class="logout-btn">Logout</button>
-    `;
+    `; // this will write in the html file "Visit profile" and "Logout" buttons
 
     // Toggle dropdown
     //This prevents the click event from ALSO triggering the “close the dropdown” listener in the document click event.
@@ -149,9 +154,11 @@ function updateAuthButton() {
         }
     });
 
+    //This is the new container for the user dropdown menu. inattach inside the container the button and the menu
     container.appendChild(btn);
     container.appendChild(menu);
 
+    //Replace the old “Login” button with the new dropdown
     if (loginBtn && loginBtn.parentNode) loginBtn.parentNode.replaceChild(container, loginBtn);
     else document.querySelector('.header-inner')?.appendChild(container);
 }
@@ -160,6 +167,7 @@ function updateAuthButton() {
 updateAuthButton();
 
 // 4. FORM SUBMISSION
+//Extract the name to display from the form inputs
 function extractDisplayNameFrom(form) {
     const candidates = form.querySelectorAll('input[name], input[id]');
     for (const input of candidates) {
@@ -172,6 +180,8 @@ function extractDisplayNameFrom(form) {
     return 'User';
 }
 
+// Handle login form submission.It prevents the default form submission behavior,\
+//  stores the user data in localStorage, hides the auth overlay, and updates the login button to reflect the logged-in state.
 loginForm?.addEventListener('submit', (e) => {
     e.preventDefault();
     setStoredUser({ name: extractDisplayNameFrom(loginForm) });
@@ -179,6 +189,7 @@ loginForm?.addEventListener('submit', (e) => {
     updateAuthButton();
 });
 
+// Handle register form submission. It does the same as the login form but for registration.
 registerForm?.addEventListener('submit', (e) => {
     e.preventDefault();
     setStoredUser({ name: extractDisplayNameFrom(registerForm) });
@@ -186,7 +197,10 @@ registerForm?.addEventListener('submit', (e) => {
     updateAuthButton();
 });
 
+
 // AUTO-OPEN LOGIN WHEN ?showLogin=true
+// this is for membership page where it auto opens the login overlay when the url has ?showLogin=true
+//  or when the user doesn't have an account yet and clicks the membership button
 document.addEventListener("DOMContentLoaded", () => {
     const params = new URLSearchParams(window.location.search);
     if (params.get("showLogin") === "true") {
