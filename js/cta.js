@@ -185,3 +185,11 @@ registerForm?.addEventListener('submit', (e) => {
     authOverlay.style.display = 'none';
     updateAuthButton();
 });
+
+// AUTO-OPEN LOGIN WHEN ?showLogin=true
+document.addEventListener("DOMContentLoaded", () => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("showLogin") === "true") {
+        document.getElementById("authOverlay").style.display = "flex";
+    }
+});

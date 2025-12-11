@@ -200,5 +200,20 @@
 <script src="js/plan.js"></script>
 <script src="js/nav.js"></script>
 <script src="js/cta.js"></script>
+
+    <script>
+document.addEventListener("DOMContentLoaded", () => {
+    const user = JSON.parse(localStorage.getItem("auth_user"));
+
+    // If not logged in → redirect to homepage and open login
+    if (!user) {
+        // store where the user wanted to go
+        localStorage.setItem("redirect_after_login", "services.html");
+
+        // open login modal on home page
+        window.location.href = "index.html?showLogin=true";
+    }
+});
+</script>
 </body>
 </html>
