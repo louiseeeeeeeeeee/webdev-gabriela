@@ -4,18 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - Gabriella Healthcare</title>
-    <link rel="stylesheet" href="css/about.css">
-    <link rel="stylesheet" href="css/main.css">
+
+    <!-- External Stylesheets -->
+    <link rel="stylesheet" href="css/about.css">  <!-- Page-specific styling -->
+    <link rel="stylesheet" href="css/main.css">   <!-- Global website styling -->
+
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-    <!-- Header -->
+    <!-- ========================= HEADER ========================= -->
+    <!-- Contains logo, navigation menu, and login button -->
     <header class="header">
         <div class="header-inner">
+
+            <!-- Website Logo -->
             <div class="logo">Gab<span class="logo-text-main">ri</span><span class="accent">ella</span></div>
 
+            <!-- Navigation Menu -->
             <nav class="nav">
                 <a href="index.html">Home</a>
                 <a href="about.html" class="active">About Us</a>
@@ -24,11 +32,14 @@
                 <a href="contact.html">Contact</a>
             </nav>
 
+            <!-- Login Button -->
             <button class="btn login">Log In</button>
         </div>
     </header>
 
-    <!-- Hero / Banner -->
+
+    <!-- ========================= HERO SECTION ========================= -->
+    <!-- Large banner introducing the About page -->
     <section class="about-hero">
         <div class="about-hero-content">
             <h1>About Gabriella Healthcare</h1>
@@ -36,68 +47,71 @@
         </div>
     </section>
 
-    <!-- MISSION (Hover Zoom + Image Slide Animation) -->
+
+    <!-- ========================= MISSION SECTION ========================= -->
+    <!-- Mission statement and animated image -->
     <section class="mission-section">
+
+        <!-- Mission Text -->
         <div class="mission-content">
             <h2>Our Mission</h2>
             <p>
-                The mission of the project is to educate young Filipinos by promoting awareness and prevention regarding reproductive health. 
-                It also aims to reduce discrimination surrounding the topic and to provide accessible 
+                The mission of the project is to educate young Filipinos by promoting awareness and prevention 
+                regarding reproductive health. It also aims to reduce discrimination and provide accessible 
                 information about various reproductive health products.
             </p>
         </div>
 
+        <!-- Mission Image with Hover Animation -->
         <div class="mission-image">
             <img src="assets/Banana_nobg.png" alt="Mission Image">
         </div>
     </section>
 
+    <!-- Hover Effect Script (Mission & Vision) -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const mission = document.querySelector('.mission-section');
             const vision = document.querySelector('.vision-section');
 
-            // Mission hover
-            mission.addEventListener('mouseenter', () => {
-                mission.classList.add('hovered');
-            });
-            mission.addEventListener('mouseleave', () => {
-                mission.classList.remove('hovered');
-            });
+            // Mission Hover Effect
+            mission.addEventListener('mouseenter', () => mission.classList.add('hovered'));
+            mission.addEventListener('mouseleave', () => mission.classList.remove('hovered'));
 
-         // Vision hover
-            vision.addEventListener('mouseenter', () => {
-                vision.classList.add('hovered');
-            });
-            vision.addEventListener('mouseleave', () => {
-                vision.classList.remove('hovered');
-            });
+            // Vision Hover Effect
+            vision.addEventListener('mouseenter', () => vision.classList.add('hovered'));
+            vision.addEventListener('mouseleave', () => vision.classList.remove('hovered'));
         });
     </script>
 
 
-    <!-- VISION (Hover Zoom + Image Slide Animation) -->
+    <!-- ========================= VISION SECTION ========================= -->
+    <!-- Company vision with image and hover effects -->
     <section class="vision-section">
+
+        <!-- Vision Image -->
         <div class="vision-image">
             <img src="assets/vision.jpg" alt="Vision Image">
         </div>
 
+        <!-- Vision Text -->
         <div class="vision-content">
             <h2>Our Vision</h2>
             <p>
-             To completely eradicate the stigma in HIV patients and to create a future for young Filipinos
-             where no one suffers in silence, and where compassion, education, 
-             and healthcare are within reach of everyone in need.
+                To completely eradicate the stigma around HIV and create a future where young Filipinos 
+                have access to education, compassion, and healthcare without judgment.
             </p>
         </div>
     </section>
 
 
-    <!-- OUR VALUES -->
+    <!-- ========================= VALUES SECTION ========================= -->
+    <!-- Grid of core values -->
     <section class="section">
         <div class="container values">
             <h2>Our Values</h2>
 
+            <!-- Value Cards -->
             <div class="value-grid">
                 <div class="value-card">Empowerment</div>
                 <div class="value-card">Inclusivity</div>
@@ -110,13 +124,15 @@
     </section>
 
 
-    <!-- MEET THE TEAM -->
+    <!-- ========================= MEET THE TEAM ========================= -->
+    <!-- Team member cards with role descriptions -->
     <section class="section alt">
         <div class="container team">
             <h2>Meet the Team</h2>
 
             <div class="team-grid">
 
+                <!-- Team Member 1 -->
                 <div class="team-card">
                     <div class="avatar" style="background-image: url('assets/Racy.jpg');"></div>
                     <h3>Racy Ledres</h3>
@@ -126,14 +142,16 @@
                     <p>Developer</p>
                 </div>
 
+                <!-- Team Member 2 -->
                 <div class="team-card">
                     <div class="avatar" style="background-image: url('assets/Lex.png');"></div>
                     <h3>Alexis Arcenal</h3>
                     <p>Developer</p>
-                    <p>Content writer</p>
+                    <p>Content Writer</p>
                     <p>Designer</p>
                 </div>
 
+                <!-- Team Member 3 -->
                 <div class="team-card">
                     <div class="avatar" style="background-image: url('assets/Andrea.jpg');"></div>
                     <h3>Andrea Concepcion</h3>
@@ -147,12 +165,14 @@
         </div>
     </section>
 
-    <!-- Credibility / Partners Section -->
+
+    <!-- ========================= CREDIBILITY / PARTNERS ========================= -->
     <section class="credibility-section">
         <div class="credibility-container">
             <h2>Trusted By</h2>
-            <p>We work closely with organizations dedicated to women's health, education, and empowerment.</p>
+            <p>We work with organizations dedicated to women’s health, education, and empowerment.</p>
 
+            <!-- Trust / Partnership Cards -->
             <div class="credibility-logos">
                 <div class="credibility-card">Partnered with NGOs</div>
                 <div class="credibility-card">Collaboration with Health Experts</div>
@@ -162,37 +182,40 @@
         </div>
     </section>
 
-        <!-- Contact CTA (New Redesign) -->
+
+    <!-- ========================= CONTACT CTA SECTION ========================= -->
+    <!-- Floating question marks + call-to-action to contact support -->
     <section class="questions-section">
     
-        <!-- Floating river of question marks -->
+        <!-- Floating Question Mark Animation -->
         <div class="floating-icons">
             <span>?</span><span>?</span><span>?</span><span>?</span><span>?</span>
             <span>?</span><span>?</span><span>?</span><span>?</span><span>?</span>
             <span>?</span><span>?</span><span>?</span><span>?</span><span>?</span>
         </div>
 
-        <!-- NEW hero-like container box -->
+        <!-- CTA Message Box -->
         <div class="questions-box">
             <div class="questions-content">
                 <h2>Have Questions?</h2>
                 <p>We’re here for you!</p>
-                <p>We’re here to guide you with accurate, empowering, and judgment-free information.</p>
+                <p>We guide you with accurate, empowering, and judgment-free information.</p>
+
+                <!-- Contact Button -->
                 <a href="contact.html" class="contact-btn">Contact Us</a>
             </div>
         </div>
-
     </section>
 
+
+    <!-- Scroll Animation Script -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const animatedElements = document.querySelectorAll(".fade-up");
 
             const observer = new IntersectionObserver(entries => {
                 entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add("show");
-                    }
+                    if (entry.isIntersecting) entry.target.classList.add("show");
                 });
             }, { threshold: 0.2 });
 
@@ -201,11 +224,15 @@
     </script>
 
 
-   <!-- Footer -->
+    <!-- ========================= FOOTER ========================= -->
+    <!-- Footer navigation + copyright -->
     <footer class="footer">
         <div class="footer-container">
+
+            <!-- Footer Logo -->
             <p class="footer-logo">Gabriella</p>
 
+            <!-- Footer Navigation -->
             <nav class="footer-nav">
                 <a href="index.html" class="gradient-underline">Home</a>
                 <a href="about.html" class="active">About</a>
@@ -217,87 +244,84 @@
             <p class="footer-copy">© 2025 Gabriella Healthcare. All rights reserved.</p>
         </div>
     </footer>
-    
-    <!-- LOGIN / REGISTER OVERLAY -->
-<div class="overlay" id="authOverlay">
-    <div class="auth-container">
 
-        <button class="close-btn" id="closeAuth">&times;</button>
 
-        <div class="auth-tabs">
-            <button class="tab active" id="loginTab">Log In</button>
-            <button class="tab" id="registerTab">Register</button>
+    <!-- ========================= LOGIN / REGISTER OVERLAY ========================= -->
+    <!-- Pop-up modal for user authentication -->
+    <div class="overlay" id="authOverlay">
+        <div class="auth-container">
+
+            <!-- Close Modal Button -->
+            <button class="close-btn" id="closeAuth">&times;</button>
+
+            <!-- Tabs for Login / Register -->
+            <div class="auth-tabs">
+                <button class="tab active" id="loginTab">Log In</button>
+                <button class="tab" id="registerTab">Register</button>
+            </div>
+
+            <!-- Login Form -->
+            <form class="auth-form" id="loginForm">
+                <h2>Log In</h2>
+                <label>Email</label>
+                <input type="email" required>
+                <label>Password</label>
+                <input type="password" required>
+                <button type="submit" class="btn auth-btn">Log In</button>
+            </form>
+
+            <!-- Registration Form -->
+            <form class="auth-form hidden" id="registerForm">
+                <h2>Create Account</h2>
+
+                <label>Username</label>
+                <input type="text" required>
+
+                <label>First Name</label>
+                <input type="text" required>
+
+                <label>Last Name</label>
+                <input type="text" required>
+
+                <label>Birthday</label>
+                <input type="date" required>
+
+                <label>Email Address</label>
+                <input type="email" required>
+
+                <!-- Address Fields -->
+                <h3>Address</h3>
+
+                <label>Street</label>
+                <input type="text">
+
+                <label>Barangay</label>
+                <input type="text">
+
+                <label>City</label>
+                <input type="text">
+
+                <label>Postal Code</label>
+                <input type="text">
+
+                <button type="submit" class="btn auth-btn">Register</button>
+            </form>
+
         </div>
-
-        <!-- LOGIN FORM -->
-        <form class="auth-form" id="loginForm">
-            <h2>Log In</h2>
-            <label>Email</label>
-            <input type="email" required>
-
-            <label>Password</label>
-            <input type="password" required>
-
-            <button type="submit" class="btn auth-btn">Log In</button>
-        </form>
-
-        <!-- REGISTRATION FORM -->
-        <form class="auth-form hidden" id="registerForm">
-            <h2>Create Account</h2>
-
-            <label>Username</label>
-            <input type="text" required>
-
-            <label>First Name</label>
-            <input type="text" required>
-
-            <label>Last Name</label>
-            <input type="text" required>
-
-            <label>Birthday</label>
-            <input type="date" required>
-
-            <label>Email Address</label>
-            <input type="email" required>
-
-            <h3>Address</h3>
-
-            <label>Street</label>
-            <input type="text">
-
-            <label>Barangay</label>
-            <input type="text">
-
-            <label>City</label>
-            <input type="text">
-
-            <label>Postal Code</label>
-            <input type="text">
-
-            <button type="submit" class="btn auth-btn">Register</button>
-        </form>
-
     </div>
-</div>
 
-    <!-- Mission Hover Script -->
+    <!-- Mission Hover Script (Duplicate but kept intact) -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const mission = document.querySelector('.mission-section');
-
-            mission.addEventListener('mouseenter', () => {
-                mission.classList.add('hovered');
-            });
-
-            mission.addEventListener('mouseleave', () => {
-                mission.classList.remove('hovered');
-            });
+            mission.addEventListener('mouseenter', () => mission.classList.add('hovered'));
+            mission.addEventListener('mouseleave', () => mission.classList.remove('hovered'));
         });
     </script>
 
+    <!-- External JavaScript Files -->
     <script src="js/cta.js"></script>
     <script src="js/nav.js"></script>
 
 </body>
 </html>
-

@@ -1,4 +1,6 @@
-// === CONFIG ===
+// This creates a map centered at TUP-Manila, marks HIV testing centers, 
+// and filters only those within a 5 km radius. It also generates a sidebar list showing 
+// the nearby centers and their distances.
 const TUP_MANILA = { lat: 14.5869, lng: 120.9860 }; // TUP – Manila coordinates
 const SEARCH_RADIUS_KM = 5; // radius for filtering
 
