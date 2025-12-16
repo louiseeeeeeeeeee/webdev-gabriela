@@ -3,16 +3,21 @@ document.addEventListener("DOMContentLoaded", () => {
     const membershipForm = document.getElementById("membershipForm");
     const closeMembership = document.getElementById("closeMembership");
 
+
     const selectedPlan = document.getElementById("selectedPlan");
     const selectedPrice = document.getElementById("selectedPrice");
+
 
     const paymentMethod = document.getElementById("paymentMethod");
     const paymentDetail = document.getElementById("paymentDetail");
 
+
     if (!membershipOverlay || !membershipForm) return;
+
 
     let currentPlan = "";
     let currentPrice = "";
+
 
     // =========================
     // OPEN OVERLAY (PLAN SELECT)
@@ -21,15 +26,19 @@ document.addEventListener("DOMContentLoaded", () => {
         button.addEventListener("click", () => {
             const card = button.closest(".plan-card");
 
+
             currentPlan = card.querySelector("h2").textContent.trim();
             currentPrice = card.querySelector(".price").textContent.trim();
+
 
             selectedPlan.textContent = currentPlan;
             selectedPrice.textContent = ` (${currentPrice})`;
 
+
             membershipOverlay.style.display = "flex";
         });
     });
+
 
     // =========================
     // CLOSE OVERLAY
@@ -38,17 +47,20 @@ document.addEventListener("DOMContentLoaded", () => {
         membershipOverlay.style.display = "none";
     });
 
+
     membershipOverlay.addEventListener("click", (e) => {
         if (e.target === membershipOverlay) {
             membershipOverlay.style.display = "none";
         }
     });
 
+
     // =========================
     // PAYMENT METHOD HANDLING
     // =========================
     paymentMethod.addEventListener("change", () => {
         const method = paymentMethod.value;
+
 
         if (!method) {
             paymentDetail.style.display = "none";
@@ -57,8 +69,10 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
+
         paymentDetail.style.display = "block";
         paymentDetail.required = true;
+
 
         switch (method) {
             case "paypal":
@@ -75,16 +89,19 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
+
     // =========================
     // SUBMIT (JS ONLY)
     // =========================
     membershipForm.addEventListener("submit", (e) => {
         e.preventDefault();
 
+
         if (!paymentDetail.value.trim()) {
             alert("Please provide your payment details.");
             return;
         }
+
 
         const membershipData = {
             plan: currentPlan,
@@ -94,7 +111,9 @@ document.addEventListener("DOMContentLoaded", () => {
             subscribedAt: new Date().toISOString()
         };
 
+
         localStorage.setItem("membership", JSON.stringify(membershipData));
+
 
        // Show success overlay instead of alert
     const overlay = document.createElement("div");
@@ -108,16 +127,19 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
     document.body.appendChild(overlay);
 
+
     const closeBtn = overlay.querySelector("#closeSuccess");
     closeBtn.addEventListener("click", () => {
         overlay.classList.add("fade-out");
         setTimeout(() => overlay.remove(), 500);
     });
 
+
     setTimeout(() => {
         overlay.classList.add("fade-out");
         setTimeout(() => overlay.remove(), 500);
     }, 5000);
+
 
         // Reset UI
         membershipForm.reset();
@@ -125,5 +147,9 @@ document.addEventListener("DOMContentLoaded", () => {
         paymentDetail.required = false;
         membershipOverlay.style.display = "none";
     });
-}); 
+});
+
+
+
+
 
