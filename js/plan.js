@@ -1,131 +1,129 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
     const membershipOverlay = document.getElementById("membershipOverlay");
     const membershipForm = document.getElementById("membershipForm");
+    const closeMembership = document.getElementById("closeMembership");
+
     const selectedPlan = document.getElementById("selectedPlan");
     const selectedPrice = document.getElementById("selectedPrice");
+
     const paymentMethod = document.getElementById("paymentMethod");
     const paymentDetail = document.getElementById("paymentDetail");
 
-    // Show paymentDetail input only when "method" is selected
+    if (!membershipOverlay || !membershipForm) return;
+
+    let currentPlan = "";
+    let currentPrice = "";
+
+    // =========================
+    // OPEN OVERLAY (PLAN SELECT)
+    // =========================
+    document.querySelectorAll(".plan-card button").forEach(button => {
+        button.addEventListener("click", () => {
+            const card = button.closest(".plan-card");
+
+            currentPlan = card.querySelector("h2").textContent.trim();
+            currentPrice = card.querySelector(".price").textContent.trim();
+
+            selectedPlan.textContent = currentPlan;
+            selectedPrice.textContent = ` (${currentPrice})`;
+
+            membershipOverlay.style.display = "flex";
+        });
+    });
+
+    // =========================
+    // CLOSE OVERLAY
+    // =========================
+    closeMembership.addEventListener("click", () => {
+        membershipOverlay.style.display = "none";
+    });
+
+    membershipOverlay.addEventListener("click", (e) => {
+        if (e.target === membershipOverlay) {
+            membershipOverlay.style.display = "none";
+        }
+    });
+
+    // =========================
+    // PAYMENT METHOD HANDLING
+    // =========================
     paymentMethod.addEventListener("change", () => {
         const method = paymentMethod.value;
+
         if (!method) {
             paymentDetail.style.display = "none";
             paymentDetail.value = "";
             paymentDetail.required = false;
             return;
         }
+
         paymentDetail.style.display = "block";
         paymentDetail.required = true;
 
-        switch(method) {
-            case "paypal": paymentDetail.placeholder = "Enter PayPal email"; break;
-            case "gcash": paymentDetail.placeholder = "Enter Gcash number"; break;
-            case "Maya": paymentDetail.placeholder = "Enter Maya number"; break;
-            default: paymentDetail.placeholder = "Enter payment info";
+        switch (method) {
+            case "paypal":
+                paymentDetail.placeholder = "Enter PayPal email";
+                break;
+            case "gcash":
+                paymentDetail.placeholder = "Enter GCash number";
+                break;
+            case "Maya":
+                paymentDetail.placeholder = "Enter Maya number";
+                break;
+            default:
+                paymentDetail.placeholder = "Enter payment info";
         }
     });
 
-    // show overlay with plan + price
-const planButtons = document.querySelectorAll(".plan-card button");
-planButtons.forEach(btn => {
-    btn.addEventListener("click", () => {
-        const card = btn.closest(".plan-card");
-        const planName = card.querySelector("h2").textContent;
-        const planPrice = card.querySelector(".price").textContent;
-
-        selectedPlan.textContent = planName;
-        selectedPrice.textContent = ` (${planPrice})`; // show price next to plan name
-        membershipOverlay.style.display = "flex";
-    });
-});
-
-
-    // Form submission
+    // =========================
+    // SUBMIT (JS ONLY)
+    // =========================
     membershipForm.addEventListener("submit", (e) => {
         e.preventDefault();
 
-        const name = membershipForm.fullName.value.trim();
-        const email = membershipForm.email.value.trim();
-        const plan = selectedPlan.textContent.trim();
-        const price = selectedPrice.textContent.trim();
-        const payment = paymentMethod.value;
-        const paymentInfo = paymentDetail.value.trim();
-
-        if (!paymentInfo) {
+        if (!paymentDetail.value.trim()) {
             alert("Please provide your payment details.");
             return;
         }
 
-        alert(
-            `Thank you, ${name}!\n` +
-            `We will contact you at ${email}.\n` +
-            `Plan: ${plan} ${price}\n` +
-            `Payment Method: ${payment}\n`
-        );
+        const membershipData = {
+            plan: currentPlan,
+            price: currentPrice,
+            paymentMethod: paymentMethod.value,
+            paymentDetail: paymentDetail.value.trim(),
+            subscribedAt: new Date().toISOString()
+        };
 
-        membershipOverlay.style.display = "none";
+        localStorage.setItem("membership", JSON.stringify(membershipData));
+
+       // Show success overlay instead of alert
+    const overlay = document.createElement("div");
+    overlay.className = "success-msg-overlay";
+    overlay.innerHTML = `
+        <div class="success-icon">✔</div>
+        <div class="success-text">
+            Membership subscribed successfully!
+        </div>
+        <button id="closeSuccess">&times;</button>
+    `;
+    document.body.appendChild(overlay);
+
+    const closeBtn = overlay.querySelector("#closeSuccess");
+    closeBtn.addEventListener("click", () => {
+        overlay.classList.add("fade-out");
+        setTimeout(() => overlay.remove(), 500);
+    });
+
+    setTimeout(() => {
+        overlay.classList.add("fade-out");
+        setTimeout(() => overlay.remove(), 500);
+    }, 5000);
+
+        // Reset UI
         membershipForm.reset();
         paymentDetail.style.display = "none";
         paymentDetail.required = false;
-    });
-});
-
-// Membership Popup Functionality
-const planButtons = document.querySelectorAll(".plan-card button");
-const membershipOverlay = document.getElementById("membershipOverlay");
-const closeMembership = document.getElementById("closeMembership");
-const selectedPlanEl = document.getElementById("selectedPlan");
-
-planButtons.forEach(btn => {
-    btn.addEventListener("click", () => {
-        const planName = btn.closest(".plan-card").querySelector("h2").textContent;
-        selectedPlanEl.textContent = planName;
-        membershipOverlay.style.display = "flex";
-    });
-});
-
-// Close overlay
-closeMembership.addEventListener("click", () => {
-    membershipOverlay.style.display = "none";
-});
-
-// Close overlay if clicked outside the content
-membershipOverlay.addEventListener("click", (e) => {
-    if (e.target === membershipOverlay) {
         membershipOverlay.style.display = "none";
-    }
-});
+    });
+}); 
 
-const paymentMethod = document.getElementById("paymentMethod");
-const paymentDetail = document.getElementById("paymentDetail");
-
-paymentMethod.addEventListener("change", () => {
-    const method = paymentMethod.value;
-
-    if (!method) {
-        paymentDetail.style.display = "none";
-        paymentDetail.value = "";
-        paymentDetail.placeholder = "";
-        return;
-    }
-
-    paymentDetail.style.display = "block";
-
-    switch(method) {
-        case "creditCard":
-            paymentDetail.placeholder = "Enter credit card number";
-            break;
-        case "paypal":
-            paymentDetail.placeholder = "Enter PayPal email";
-            break;
-        case "gcash":
-            paymentDetail.placeholder = "Enter Gcash number";
-            break;
-        case "bankTransfer":
-            paymentDetail.placeholder = "Enter bank account number";
-            break;
-        default:
-            paymentDetail.placeholder = "Enter payment info";
-    }
-});

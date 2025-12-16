@@ -352,3 +352,95 @@ ul li::before {
     .hero { padding: 30px; }
     .hero h1 { font-size: 32px; }
 }
+
+.membership-msg {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 6px;
+    z-index: 10000;
+    font-weight: 500;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    animation: fadeInOut 5s forwards;
+}
+
+.membership-msg.success {
+    background-color: #4CAF50;
+    color: #fff;
+}
+
+.membership-msg.error {
+    background-color: #f44336;
+    color: #fff;
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: translateY(-20px); }
+    10% { opacity: 1; transform: translateY(0); }
+    90% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-20px); }
+}
+
+.success-msg-overlay {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: linear-gradient(135deg, #4CAF50, #45a049);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 12px;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+    z-index: 10000;
+    min-width: 280px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    animation: slideIn 0.5s ease-out;
+    overflow: hidden;
+}
+
+.success-msg-overlay .success-icon {
+    font-size: 22px;
+    flex-shrink: 0;
+}
+
+.success-msg-overlay .success-text {
+    flex-grow: 1;
+    font-size: 16px;
+}
+
+#closeSuccess {
+    background: rgba(255,255,255,0.2);
+    border: none;
+    border-radius: 50%;
+    color: white;
+    font-size: 18px;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    transition: 0.3s;
+    flex-shrink: 0;
+}
+
+#closeSuccess:hover {
+    background: rgba(255,255,255,0.4);
+}
+
+/* Slide-in animation */
+@keyframes slideIn {
+    0% { transform: translateX(120%); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+
+/* Optional fade-out after 5s */
+.success-msg-overlay.fade-out {
+    animation: fadeOut 0.5s forwards;
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; transform: translateX(0); }
+    to { opacity: 0; transform: translateX(120%); }
+}

@@ -1,11 +1,22 @@
+<?php
+session_start();
+
+// Check if user is logged in
+if(!isset($_SESSION['username'])) {
+    // Redirect back to home page with a flag to auto-open login overlay
+    header("Location: ../index.php?showLogin=true");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gabriella - Membership</title>
-    <link rel="stylesheet" href="css/services.css">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="../css/services.css">
+    <link rel="stylesheet" href="../css/main.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 </head>
@@ -17,14 +28,26 @@
             <div class="logo">Gab<span class="logo-text-main">ri</span><span class="accent">ella</span></div>
 
             <nav class="nav">
-                <a href="index.html">Home</a>
-                <a href="about.html">About Us</a>
-                <a href="services.html">Membership</a>
-                <a href="learn.html">Learn</a>
-                <a href="contact.html">Contact</a>
+                <a href="../index.php">Home</a>
+                <a href="about.php">About Us</a>
+                <a href="services.php">Membership</a>
+                <a href="learn.php">Learn</a>
+                <a href="contact.php">Contact</a>
             </nav>
-            
+                 <?php if(isset($_SESSION['username'])): ?>
+            <!-- Dropdown UI -->
+            <div class="user-dropdown">
+                <button class="user-btn btn" type="button" aria-expanded="false">
+                    <?= htmlspecialchars($_SESSION['username']); ?>
+                </button>
+                <div class="user-menu" style="display:none;">
+                    <a href="/profile.php" class="profile-link">Visit profile</a>
+                    <a href="logout.php" class="logout-btn">Logout</a>
+                </div>
+            </div>
+        <?php else: ?>
             <button class="btn login">Log In</button>
+        <?php endif; ?>
         </div>
     </header>
 
@@ -33,6 +56,20 @@
     <h1>Membership Plans</h1>
     <p>Choose a healthcare plan that fits your lifestyle and needs.</p>
 </section>
+
+<?php
+if (isset($_GET['membership']) && $_GET['membership'] === 'success') {
+    echo '
+    <div class="success-msg-overlay">
+        <div class="success-icon">✔</div>
+        <div class="success-text">
+            Membership subscribed successfully!
+        </div>
+        <button id="closeSuccess">&times;</button>
+    </div>
+    ';
+}
+?>
 
 <!-- Membership Cards -->
 <section class="membership">
@@ -99,29 +136,30 @@
 <div id="membershipOverlay">
     <div class="overlay-content">
         <span id="closeMembership">&times;</span>
-        <form id="membershipForm">
-            <h2>
-                Subscribe to:<br>
-                <span id="selectedPlan">Plan Name</span>
-                <span id="selectedPrice"></span>
-            </h2>
+         <form id="membershipForm" method="POST" action="submit_membership.php">
+    <h2>
+        Subscribe to:<br>
+        <span id="selectedPlan">Plan Name</span>
+        <span id="selectedPrice"></span>
+    </h2>
 
-             <!-- Hidden inputs for plan and price -->
-            <input type="hidden" name="plan" id="formPlan">
-            <input type="hidden" name="price" id="formPrice">
-          
-            <label for="paymentMethod">Payment Method</label>
-            <select name="paymentMethod" id="paymentMethod" required>
-                <option value="">Select a method</option>
-                <option value="paypal">PayPal</option>
-                <option value="gcash">Gcash</option>
-                <option value="Maya">Maya</option>
-            </select>
+    <!-- Hidden inputs for plan and price -->
+    <input type="hidden" name="plan" id="formPlan">
+    <input type="hidden" name="price" id="formPrice">
 
-            <input type="text" name="paymentDetail" id="paymentDetail" placeholder="" style="display:none;" required>
+    <label for="paymentMethod">Payment Method</label>
+    <select name="paymentMethod" id="paymentMethod" required>
+        <option value="">Select a method</option>
+        <option value="paypal">PayPal</option>
+        <option value="gcash">Gcash</option>
+        <option value="Maya">Maya</option>
+    </select>
 
-            <button type="submit" class="btn">Submit</button>
-        </form>
+    <input type="text" name="paymentDetail" id="paymentDetail" placeholder="" style="display:none;" required>
+
+    <button type="submit" class="btn">Submit</button>
+</form>
+
     </div>
 </div>
 
@@ -205,24 +243,10 @@
 </div>
 
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-<script src="js/testing-centers.js"></script>
-<script src="js/plan.js"></script>
-<script src="js/nav.js"></script>
-<script src="js/cta.js"></script>
+<script src="../js/testing-centers.js"></script>
+<script src="../js/planphp.js"></script>
+<script src="../js/nav.js"></script>
+<script src="../js/ctaphp.js"></script>
 
-    <script>
-document.addEventListener("DOMContentLoaded", () => {
-    const user = JSON.parse(localStorage.getItem("auth_user"));
-
-    // If not logged in → redirect to homepage and open login
-    if (!user) {
-        // store where the user wanted to go
-        localStorage.setItem("redirect_after_login", "services.html");
-
-        // open login modal on home page
-        window.location.href = "index.html?showLogin=true";
-    }
-});
-</script>
 </body>
 </html>

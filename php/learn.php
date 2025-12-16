@@ -1,0 +1,266 @@
+<?php session_start(); ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gabriella - Learn</title>
+    <link rel="stylesheet" href="../css/learn.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+   <header class="header">
+    <div class="header-inner">
+        <div class="logo">Gab<span class="logo-text-main">ri</span><span class="accent">ella</span></div>
+        <nav class="nav">
+            <a href="../index.php">Home</a>
+            <a href="about.php">About Us</a>
+            <a href="services.php">Membership</a>
+            <a href="learn.php">Learn</a>
+            <a href="contact.php">Contact</a>
+        </nav>
+
+        <?php if(isset($_SESSION['username'])): ?>
+            <!-- Dropdown UI -->
+            <div class="user-dropdown">
+                <button class="user-btn btn" type="button" aria-expanded="false">
+                    <?= htmlspecialchars($_SESSION['username']); ?>
+                </button>
+                <div class="user-menu" style="display:none;">
+                    <a href="/profile.php" class="profile-link">Visit profile</a>
+                    <a href="logout.php" class="logout-btn">Logout</a>
+                </div>
+            </div>
+        <?php else: ?>
+            <button class="btn login">Log In</button>
+        <?php endif; ?>
+    </div>
+</header>
+
+    <!-- HERO SECTION -->
+<section class="hero learn-hero">
+    <h1>Learn and Empower Yourself</h1>
+    <p>Explore topics on health, wellness, and safe practices to take charge of your wellbeing.</p>
+    <button class="btn warm">Get Started</button>
+</section>
+
+<!-- MAIN CONTAINER -->
+<div class="container">
+    <!-- Featured Topics -->
+<section class="features">
+
+    <!-- CARD 1 -->
+    <div class="feature-card">
+        <div class="feature-icon">💖</div>
+        <h3>Safe Sex Essentials</h3>
+        <p>Learn the basics of consent, contraception, and healthy sexual practices to keep yourself protected and empowered.</p>
+        <button class="btn warm">Learn More</button>
+    </div>
+
+    <!-- CARD 2 -->
+    <div class="feature-card">
+        <div class="feature-icon">🧬</div>
+        <h3>Understanding HIV</h3>
+        <p>Discover how HIV is transmitted, its effects on the body, and why early detection and awareness are important.</p>
+        <button class="btn warm">Learn More</button>
+    </div>
+
+    <!-- CARD 3 -->
+    <div class="feature-card">
+        <div class="feature-icon">🛡️</div>
+        <h3>Protection & Prevention</h3>
+        <p>Explore PrEP, condom use, regular testing, and practical strategies to reduce risks and stay in control of your health.</p>
+        <button class="btn warm">Learn More</button>
+    </div>
+
+    <!-- CARD 4 -->
+    <div class="feature-card">
+        <div class="feature-icon">💡</div>
+        <h3>Testing & Support</h3>
+        <p>Find out where to get tested, how treatment works, and what support resources are available in your community.</p>
+        <button class="btn warm">Learn More</button>
+    </div>
+
+</section>
+
+
+    <!-- Latest Articles -->
+    <section class="articles">
+        <h2 class="section-title">Latest Articles</h2>
+        <div class="article-slider">
+            <div class="article-track">
+                <div class="article-card">
+                    <img src="https://via.placeholder.com/400x200" alt="Article 1">
+                    <div class="article-content">
+                        <h3>What is Sex Education</h3>
+                        <p>Practical tips on communicating with your partner about sexual health.</p>
+                       <a class="btn warm" href="#">Read More</a> 
+                    </div>
+                </div>
+                <div class="article-card">
+                    <img src="https://via.placeholder.com/400x200" alt="Article 2">
+                    <div class="article-content">
+                        <h3>Easy Healthy Meals</h3>
+                        <p>Simple meal ideas to support a balanced diet without stress.</p>
+                        <a class="btn warm" href="#">Read More</a> 
+                    </div>
+                </div>
+                <div class="article-card">
+                    <img src="https://via.placeholder.com/400x200" alt="Article 3">
+                    <div class="article-content">
+                        <h3>Stress Relief Techniques</h3>
+                        <p>Learn quick exercises and mindfulness practices for mental clarity.</p>
+                         <a class="btn warm" href="#">Read More</a> 
+                    </div>
+                </div>
+                <!-- Duplicate Articles for Smooth Loop -->
+                <div class="article-card">
+                    <img src="https://via.placeholder.com/400x200" alt="Duplicate 1">
+                    <div class="article-content">
+                        <h3>How to Talk About Safe Sex</h3>
+                        <p>Practical tips on communicating with your partner about sexual health.</p>
+                         <a class="btn warm" href="#">Read More</a> 
+                    </div>
+                </div>
+                <div class="article-card">
+                    <img src="https://via.placeholder.com/400x200" alt="Duplicate 2">
+                    <div class="article-content">
+                        <h3>Easy Healthy Meals</h3>
+                        <p>Simple meal ideas to support a balanced diet without stress.</p>
+                         <a class="btn warm" href="#">Read More</a> 
+                    </div>
+                </div>
+                <div class="article-card">
+                    <img src="https://via.placeholder.com/400x200" alt="Duplicate 3">
+                    <div class="article-content">
+                        <h3>Stress Relief Techniques</h3>
+                        <p>Learn quick exercises and mindfulness practices for mental clarity.</p>
+                         <a class="btn warm" href="#">Read More</a> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div> <!-- end container -->
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-container">
+        <p class="footer-logo">Gabriella</p>
+        <nav class="footer-nav">
+            <a href="../index.php" class="gradient-underline">Home</a>
+            <a href="about.php" class="active">About</a>
+            <a href="services.php" class="gradient-underline">Membership</a>
+            <a href="learn.php" class="gradient-underline">Learn</a>
+            <a href="contact.php" class="gradient-underline">Contact</a>
+        </nav>
+        <p class="footer-copy">© 2025 Gabriella Healthcare. All rights reserved.</p>
+    </div>
+</footer>
+
+<!-- LOGIN / REGISTER OVERLAY -->
+<div class="overlay" id="authOverlay">
+    <div class="auth-container">
+
+        <button class="close-btn" id="closeAuth">&times;</button>
+        <div class="auth-tabs">
+            <button class="tab active" id="loginTab">Log In</button>
+            <button class="tab" id="registerTab">Register</button>
+        </div>
+
+        <!-- LOGIN FORM -->
+        <form class="auth-form" id="loginForm">
+            <h2>Log In</h2>
+            <label>Email</label>
+            <input type="email" required>
+
+            <label>Password</label>
+            <input type="password" required>
+
+            <button type="submit" class="btn auth-btn">Log In</button>
+        </form>
+
+        <!-- REGISTRATION FORM -->
+        <form class="auth-form hidden" id="registerForm">
+            <h2>Create Account</h2>
+
+            <label>Username</label>
+            <input type="text" required>
+
+            <label>First Name</label>
+            <input type="text" required>
+
+            <label>Last Name</label>
+            <input type="text" required>
+
+            <label>Birthday</label>
+            <input type="date" required>
+
+            <label>Email Address</label>
+            <input type="email" required>
+
+            <h3>Address</h3>
+
+            <label>Street</label>
+            <input type="text">
+
+            <label>Barangay</label>
+            <input type="text">
+
+            <label>City</label>
+            <input type="text">
+
+            <label>Postal Code</label>
+            <input type="text">
+
+            <button type="submit" class="btn auth-btn">Register</button>
+        </form>
+
+    </div>
+</div>
+<script>
+const getStartedBtn = document.querySelector('.hero .btn.warm');
+const featuresSection = document.querySelector('.features');
+const allFeatureCards = featuresSection.querySelectorAll('.feature-card');
+
+getStartedBtn.addEventListener('click', () => {
+    const headerHeight = document.querySelector('.header').offsetHeight;
+    
+    const sectionTop =
+        featuresSection.getBoundingClientRect().top +
+        window.scrollY -
+        headerHeight -
+        20;
+
+    window.scrollTo({
+        top: sectionTop,
+        behavior: 'smooth'
+    });
+
+    // Disable hover glow during animation
+    document.body.classList.add('no-hover-glow');
+
+    // Highlight ALL cards
+    setTimeout(() => {
+        allFeatureCards.forEach(card => card.classList.add('highlight'));
+
+        // Remove highlight after 2 seconds
+        setTimeout(() => {
+            allFeatureCards.forEach(card => card.classList.remove('highlight'));
+        }, 2000);
+
+        // Return glow after highlight + extra delay
+        setTimeout(() => {
+            document.body.classList.remove('no-hover-glow');
+        }, 2600); // highlight is 2000ms + 600ms delay
+
+    }, 500);
+
+});
+
+</script>
+<script src="../js/nav.js"></script>
+<script src="../js/ctaphp.js"></script>
+</body>
+</html>

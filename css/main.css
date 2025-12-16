@@ -1,9 +1,9 @@
 :root {
-    --main: #020f5b;     
-    --secondary: #D14C74;
-    --warm: #C02727;     
-    --light: #F4DFDF;
-    --dark: #141414;
+    --main: #020f5b;     /* Blue is associated with trust, security, and reliability. Darker blues convey professionalism, authority, and calmness. */
+    --secondary: #D14C74; /* Pinkish-red evokes feelings of passion, energy, and excitement. It can also represent love and warmth. */
+    --warm: #C02727;     /* Red is a powerful color that signifies urgency, importance, and action. It can stimulate emotions and encourage quick decisions. */
+    --light: #F4DFDF; /* Light colors are associated with calm, softness, and approachability. They make content feel safe and friendly. */
+    --dark: #141414; /*Black/dark colors convey sophistication, seriousness, and strength. */
 }
 
 /* Reset & Base */
