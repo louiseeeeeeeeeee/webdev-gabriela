@@ -1,4 +1,7 @@
-<?php session_start(); ?>
+<?php
+session_start();
+require 'db.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,33 +15,32 @@
 <body>
 
     <!-- Header -->
-  <header class="header">
-    <div class="header-inner">
-        <div class="logo">Gab<span class="logo-text-main">ri</span><span class="accent">ella</span></div>
-        <nav class="nav">
-            <a href="../index.php">Home</a>
-            <a href="about.php">About Us</a>
-            <a href="services.php">Membership</a>
-            <a href="learn.php">Learn</a>
-            <a href="contact.php">Contact</a>
-        </nav>
+    <header class="header">
+        <div class="header-inner">
+            <div class="logo">Gab<span class="logo-text-main">ri</span><span class="accent">ella</span></div>
+            <nav class="nav">
+                <a href="../index.php">Home</a>
+                <a href="about.php">About Us</a>
+                <a href="services.php">Membership</a>
+                <a href="learn.php">Learn</a>
+                <a href="contact.php">Contact</a>
+            </nav>
 
-        <?php if(isset($_SESSION['username'])): ?>
-            <!-- Dropdown UI -->
-            <div class="user-dropdown">
-                <button class="user-btn btn" type="button" aria-expanded="false">
-                    <?= htmlspecialchars($_SESSION['username']); ?>
-                </button>
-                <div class="user-menu" style="display:none;">
-                    <a href="/profile.php" class="profile-link">Visit profile</a>
-                    <a href="logout.php" class="logout-btn">Logout</a>
+            <?php if(isset($_SESSION['username'])): ?>
+                <div class="user-dropdown">
+                    <button class="user-btn btn" type="button" aria-expanded="false">
+                        <?= htmlspecialchars($_SESSION['username']); ?>
+                    </button>
+                    <div class="user-menu" style="display:none;">
+                        <a href="/profile.php" class="profile-link">Visit profile</a>
+                        <a href="logout.php" class="logout-btn">Logout</a>
+                    </div>
                 </div>
-            </div>
-        <?php else: ?>
-            <button class="btn login">Log In</button>
-        <?php endif; ?>
-    </div>
-</header>
+            <?php else: ?>
+                <button class="btn login">Log In</button>
+            <?php endif; ?>
+        </div>
+    </header>
 
     <!-- Hero Section -->
     <section class="hero contact-hero">
@@ -68,22 +70,31 @@
             <!-- Contact Form -->
             <div class="contact-form-card">
                 <h2>Send a Message</h2>
-                <form class="contact-form">
+
+                <!-- Success/Error Messages -->
+                <?php if(isset($_SESSION['contact_success'])): ?>
+                    <p class="success"><?= $_SESSION['contact_success']; unset($_SESSION['contact_success']); ?></p>
+                <?php endif; ?>
+                <?php if(isset($_SESSION['contact_error'])): ?>
+                    <p class="error"><?= $_SESSION['contact_error']; unset($_SESSION['contact_error']); ?></p>
+                <?php endif; ?>
+
+                <form class="contact-form" method="POST" action="submit_contact.php">
                     <div class="form-group">
-                        <input type="text" id="name" name="name" placeholder=" " required>
-                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" placeholder="Full Name" required>
+                    
                     </div>
                     <div class="form-group">
-                        <input type="email" id="email" name="email" placeholder=" " required>
-                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="Email Address" required>
+                     
                     </div>
                     <div class="form-group">
-                        <input type="text" id="subject" name="subject" placeholder=" " required>
-                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" placeholder="Enter the subject of your message " required>
+                       
                     </div>
                     <div class="form-group">
-                        <textarea id="message" name="message" rows="5" placeholder=" " required></textarea>
-                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Write your message here... " required></textarea>
+                    
                     </div>
                     <button type="submit" class="btn warm">Send Message</button>
                 </form>
@@ -92,11 +103,10 @@
         </div>
     </section>
 
-   <!-- Footer -->
+    <!-- Footer -->
     <footer class="footer">
         <div class="footer-container">
             <p class="footer-logo">Gabriella</p>
-
             <nav class="footer-nav">
                 <a href="../index.php" class="gradient-underline">Home</a>
                 <a href="about.php" class="active">About</a>
@@ -104,74 +114,58 @@
                 <a href="learn.php" class="gradient-underline">Learn</a>
                 <a href="contact.php" class="gradient-underline">Contact</a>
             </nav>
-
             <p class="footer-copy">© 2025 Gabriella Healthcare. All rights reserved.</p>
         </div>
     </footer>
 
     <!-- LOGIN / REGISTER OVERLAY -->
-<div class="overlay" id="authOverlay">
-    <div class="auth-container">
+    <div class="overlay" id="authOverlay">
+        <div class="auth-container">
+            <button class="close-btn" id="closeAuth">&times;</button>
 
-        <button class="close-btn" id="closeAuth">&times;</button>
+            <div class="auth-tabs">
+                <button class="tab active" id="loginTab">Log In</button>
+                <button class="tab" id="registerTab">Register</button>
+            </div>
 
-        <div class="auth-tabs">
-            <button class="tab active" id="loginTab">Log In</button>
-            <button class="tab" id="registerTab">Register</button>
+            <!-- LOGIN FORM -->
+            <form class="auth-form" id="loginForm">
+                <h2>Log In</h2>
+                <label>Email</label>
+                <input type="email" required>
+                <label>Password</label>
+                <input type="password" required>
+                <button type="submit" class="btn auth-btn">Log In</button>
+            </form>
+
+            <!-- REGISTRATION FORM -->
+            <form class="auth-form hidden" id="registerForm">
+                <h2>Create Account</h2>
+                <label>Username</label>
+                <input type="text" required>
+                <label>First Name</label>
+                <input type="text" required>
+                <label>Last Name</label>
+                <input type="text" required>
+                <label>Birthday</label>
+                <input type="date" required>
+                <label>Email Address</label>
+                <input type="email" required>
+                <h3>Address</h3>
+                <label>Street</label>
+                <input type="text">
+                <label>Barangay</label>
+                <input type="text">
+                <label>City</label>
+                <input type="text">
+                <label>Postal Code</label>
+                <input type="text">
+                <button type="submit" class="btn auth-btn">Register</button>
+            </form>
         </div>
-
-        <!-- LOGIN FORM -->
-        <form class="auth-form" id="loginForm">
-            <h2>Log In</h2>
-            <label>Email</label>
-            <input type="email" required>
-
-            <label>Password</label>
-            <input type="password" required>
-
-            <button type="submit" class="btn auth-btn">Log In</button>
-        </form>
-
-        <!-- REGISTRATION FORM -->
-        <form class="auth-form hidden" id="registerForm">
-            <h2>Create Account</h2>
-
-            <label>Username</label>
-            <input type="text" required>
-
-            <label>First Name</label>
-            <input type="text" required>
-
-            <label>Last Name</label>
-            <input type="text" required>
-
-            <label>Birthday</label>
-            <input type="date" required>
-
-            <label>Email Address</label>
-            <input type="email" required>
-
-            <h3>Address</h3>
-
-            <label>Street</label>
-            <input type="text">
-
-            <label>Barangay</label>
-            <input type="text">
-
-            <label>City</label>
-            <input type="text">
-
-            <label>Postal Code</label>
-            <input type="text">
-
-            <button type="submit" class="btn auth-btn">Register</button>
-        </form>
-
     </div>
-</div>
 
     <script src="../js/nav.js"></script>
-    <script src="../js/ctaphp.js" defer></script>
+    <script src="../js/ctaphp.js"></script>
 </body>
 </html>

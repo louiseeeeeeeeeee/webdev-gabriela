@@ -31,6 +31,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Login success
             $_SESSION['logged_in'] = true;
             $_SESSION['username'] = $user['username'];
+            $_SESSION['id']        = $user['id'];
+            $_SESSION['firstname'] = $user['firstname'];
+            $_SESSION['lastname']  = $user['lastname'];
+            $_SESSION['email']     = $user['email'];
             header("Location: ../index.php");
             exit();
         } else {

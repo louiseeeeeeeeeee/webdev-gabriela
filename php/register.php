@@ -43,9 +43,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->bind_param("ssssssssss", $username, $firstname, $lastname, $birthday, $email, $password, $street, $barangay, $city, $postalcode);
 
     if ($stmt->execute()) {
+        $user_id = $conn->insert_id; 
         // Save session
         $_SESSION['logged_in'] = true;
         $_SESSION['username'] = $username;
+        $_SESSION['id']        = $user_id;
+        $_SESSION['firstname'] = $firstname;
+        $_SESSION['lastname']  = $lastname;
+        $_SESSION['email']     = $email;
         header("Location: ../index.php"); // redirect to homepage
         exit;
     } else {
