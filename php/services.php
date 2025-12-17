@@ -74,7 +74,7 @@ if (isset($_GET['membership']) && $_GET['membership'] === 'success') {
 <!-- Membership Cards -->
 <section class="membership">
     <div class="plan-card">
-        <h2>Basic Plan</h2>
+        <h2>Basic Membership</h2>
         <p class="price">₱499/month</p>
         <ul>
             <li>✔ Trust Condoms (5 packs)</li>
@@ -85,11 +85,11 @@ if (isset($_GET['membership']) && $_GET['membership'] === 'success') {
             <li>✔ 20% Discount on All Trust Products (valid for 3 months)</li>
 
         </ul>
-        <button class="btn warm">Choose Plan</button>
+        <button class="btn warm">Join Basic</button>
     </div>
 
     <div class="plan-card highlight">
-        <h2>Standard Plan</h2>
+        <h2>Standard Membership</h2>
         <p class="price">₱999/month</p>
         <ul>
             <li>✔ Trust Condoms (10 packs)</li>
@@ -99,11 +99,11 @@ if (isset($_GET['membership']) && $_GET['membership'] === 'success') {
             <li>✔ Educational Brochures from Trust</li>
             <li>✔ 25% Discount on All Trust Products (valid for 3 months)</li>
         </ul>
-        <button class="btn warm">Choose Plan</button>
+        <button class="btn warm">Join Standard</button>
     </div>
     
     <div class="plan-card">
-        <h2>Premium Plan</h2>
+        <h2>Premium Membership</h2>
         <p class="price">₱1,499/month</p>
         <ul>
             <li>✔ Trust Condoms (15 packs)</li>
@@ -138,8 +138,8 @@ if (isset($_GET['membership']) && $_GET['membership'] === 'success') {
         <span id="closeMembership">&times;</span>
          <form id="membershipForm" method="POST" action="submit_membership.php">
     <h2>
-        Subscribe to:<br>
-        <span id="selectedPlan">Plan Name</span>
+        Become a<br>
+        <span id="selectedPlan">Plan Name</span> Member
         <span id="selectedPrice"></span>
     </h2>
 
@@ -169,11 +169,11 @@ if (isset($_GET['membership']) && $_GET['membership'] === 'success') {
         <p class="footer-logo">Gabriella</p>
         
         <nav class="footer-nav">
-            <a href="index.html" class="gradient-underline">Home</a>
-            <a href="about.html" class="active">About</a>
-            <a href="services.html" class="gradient-underline">Membership</a>
-            <a href="learn.html" class="gradient-underline">Learn</a>
-            <a href="contact.html" class="gradient-underline">Contact</a>
+            <a href="../index.php" class="gradient-underline">Home</a>
+            <a href="about.php" class="active">About</a>
+            <a href="services.php" class="gradient-underline">Membership</a>
+            <a href="learn.php" class="gradient-underline">Learn</a>
+            <a href="contact.php" class="gradient-underline">Contact</a>
         </nav>
         
         <p class="footer-copy">© 2025 Gabriella Healthcare. All rights reserved.</p>

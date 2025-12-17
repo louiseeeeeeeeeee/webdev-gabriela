@@ -444,3 +444,21 @@ ul li::before {
     from { opacity: 1; transform: translateX(0); }
     to { opacity: 0; transform: translateX(120%); }
 }
+
+
+#selectedPlan,
+#selectedPrice {
+    color: var(--secondary);  
+}
+
+#membershipForm .btn{
+    background: var(--secondary);
+    color: var(--light);
+}
+
+#membershipForm .btn:hover {
+    background: var(--secondary);
+    color: var(--light);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
