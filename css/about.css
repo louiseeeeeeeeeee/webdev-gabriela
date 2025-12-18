@@ -25,16 +25,16 @@ perfect for presentation, defense, or documentation.
     background: none;                   /* no background applied to wrapper */
     display: flex;                      /* centers content using flexbox */
     justify-content: center;
+    position: relative;
 }
 
 /* Inner hero container where the actual content + background live */
 .about-hero .about-hero-content {
     width: 100%;                        /* full width */
     max-width: 3000px;                  /* ensures image scales nicely on large screens */
-
     padding: 240px 20px;                /* creates tall hero height */
     border-radius: 20px;                /* rounded corners for a soft visual */
-    overflow: hidden;                   /* contains background & effects */
+    overflow: visible;                   /* contains background & effects */
 
     /* Background image and blending */
     background-image: url('../assets/Condom_blue.png');
