@@ -45,7 +45,10 @@
     <section class="about-hero">
         <div class="about-hero-content">
             <h1>About Gabriella Healthcare</h1>
-            <p>Empowering Filipino youth with accessible, accurate, and stigma-free sexual health education.</p>
+            <p>Gabriella Reproductive Health draws inspiration from the GABRIELA organization in the Philippines. 
+                Building on their advocacy for women’s rights and welfare, we extend this mission to 
+                all Filipino youth, providing accessible, accurate, and stigma-free sexual health education.</p>
+        </div>
         </div>
     </section>
 
