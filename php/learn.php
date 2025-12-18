@@ -22,17 +22,22 @@
             <a href="contact.php">Contact</a>
         </nav>
 
+        <!-- User Authentication Display -->
         <?php if(isset($_SESSION['username'])): ?>
-            <!-- Dropdown UI -->
+            <!-- Container for the User Dropdown Menu -->
             <div class="user-dropdown">
+                <!-- Button to Toggle the Dropdown Menu -->
+                 <!-- htmlspecialchars to prevent XSS attacks -->
                 <button class="user-btn btn" type="button" aria-expanded="false">
                     <?= htmlspecialchars($_SESSION['username']); ?>
                 </button>
                 <div class="user-menu" style="display:none;">
+                  <!-- This is the dropdown menu that appears when the user clicks their username -->
                     <a href="/profile.php" class="profile-link">Visit profile</a>
                     <a href="logout.php" class="logout-btn">Logout</a>
                 </div>
             </div>
+              <!-- If the user is not logged in, show the Log In button -->
         <?php else: ?>
             <button class="btn login">Log In</button>
         <?php endif; ?>
@@ -144,7 +149,7 @@
             </div>
         </div>
     </section>
-</div> <!-- end container -->
+</div>
 <!-- Footer -->
 <footer class="footer">
     <div class="footer-container">

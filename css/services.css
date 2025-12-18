@@ -1,5 +1,5 @@
 /* ------------------ SERVICES PAGE STYLES ------------------ */
-/* Hero Section */
+/* ------------------ HERO ------------------ */
 .hero {
     max-width: 1200px;
     margin: 40px auto;
@@ -13,7 +13,7 @@
 .hero h1 { font-size: 48px; margin-bottom: 15px; }
 .hero p { font-size: 18px; margin-bottom: 25px; }
 
-/* ---------- Membership Cards (fixed: no cut-off, no hover expand) ---------- */
+/* ------------------ MEMBERSHIP CARDS ------------------ */
 .membership {
     max-width: 1200px;
     margin: 60px auto;
@@ -112,11 +112,9 @@
     align-self: flex-start; /* keep button left by default; change to center if desired */
 }
 
-/* small responsive tweak */
-@media (max-width: 480px) {
-    .plan-card { padding: 20px; min-height: 200px; }
-}
 
+
+/* ------------------ MEMBERSHIP OVERLAY ------------------ */
 #membershipOverlay {
     display: none;
     position: fixed;
@@ -346,13 +344,7 @@ ul li::before {
     opacity: 0.8;
 }
 
-/* Responsive Styles */
-@media (max-width: 768px) {
-    .header-inner { flex-direction: column; }
-    .hero { padding: 30px; }
-    .hero h1 { font-size: 32px; }
-}
-
+/* ------------------ MESSAGES ------------------ */
 .membership-msg {
     position: fixed;
     top: 20px;
@@ -462,3 +454,94 @@ ul li::before {
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
+
+/* ------------------ RESPONSIVE ------------------ */
+
+/* Large tablets / small desktops */
+@media (max-width: 1024px) {
+    /* Hero */
+    .hero { padding: 40px 30px; }
+    .hero h1 { font-size: 40px; }
+    .hero p { font-size: 17px; }
+
+    /* Membership cards */
+    .membership { gap: 20px; }
+
+    /* Testing centers */
+    .map-container { flex-direction: column; gap: 25px; }
+    #map, .center-list { width: 100%; }
+    #map { height: 350px; }
+}
+
+/* Tablets / landscape mobile */
+@media (max-width: 768px) {
+    /* Hero */
+    .hero { padding: 30px 20px; }
+    .hero h1 { font-size: 32px; }
+    .hero p { font-size: 16px; }
+
+    /* Membership cards */
+    .membership { 
+        grid-template-columns: 1fr; /* stack vertically */
+        gap: 25px;
+        padding: 0 20px;
+    }
+    .plan-card { padding: 25px; }
+
+    /* Membership overlay */
+    #membershipOverlay .overlay-content {
+        width: 90%;
+        max-width: 450px;
+        height: auto;
+        max-height: 90vh; /* prevent overflow */
+        padding: 25px;
+        overflow-y: auto; /* scroll if content too tall */
+    }
+    #membershipOverlay .overlay-content h2 { font-size: 22px; }
+    #membershipOverlay input, #membershipOverlay select { padding: 12px 20px; font-size: 1rem; }
+    #membershipOverlay .btn { bottom: 15px; padding: 10px 22px; font-size: 0.95rem; }
+
+    /* Footer */
+    .footer { padding: 40px 20px; }
+    .footer-nav { flex-direction: column; gap: 10px; }
+    .footer-logo { font-size: 24px; }
+}
+
+/* Mobile devices */
+@media (max-width: 480px) {
+    /* Hero */
+    .hero { padding: 20px 15px; }
+    .hero h1 { font-size: 26px; }
+    .hero p { font-size: 14px; }
+
+    /* Membership cards */
+    .plan-card { padding: 20px; min-height: 180px; }
+    .plan-card h2 { font-size: 18px; }
+    .plan-card .price { font-size: 22px; }
+    .plan-card ul li { font-size: 14px; padding-left: 18px; }
+    .plan-card .btn { padding: 8px 18px; font-size: 14px; }
+
+    /* Membership overlay */
+    #membershipOverlay .overlay-content {
+        width: 95%;
+        max-width: 400px;
+        padding: 20px;
+        height: 400px;
+        max-height: 1000vh;
+        overflow-y: auto;
+    }
+    #membershipOverlay .overlay-content h2 { font-size: 20px; }
+    #membershipOverlay input, #membershipOverlay select { padding: 10px; font-size: 0.95rem; }
+    #membershipOverlay .btn { bottom: 10px; padding: 10px 20px; font-size: 0.9rem; max-width: fit-content;}
+
+    /* Testing centers */
+    #map { height: 250px; }
+    .testing-centers h2 { font-size: 28px; }
+    .center-list { padding: 15px; font-size: 14px; }
+
+    /* Footer */
+    .footer { padding: 30px 15px; }
+    .footer-logo { font-size: 20px; }
+    .footer-copy { font-size: 12px; }
+}
+

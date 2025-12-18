@@ -1,5 +1,5 @@
 /* ------------------ HOME PAGE STYLES ------------------ */
-/* Hero Section */
+/* ------------------ HERO ------------------ */
 .hero {
     position: relative;
     background: url('../assets/condoms.jpg') center/cover no-repeat;
@@ -58,13 +58,11 @@
     border: 2px solid var(--secondary)
 }
 
-/* Features Section */
-
-
+/* ------------------ FEATURES ------------------ */
 .features {
     display: flex;
     flex-direction: column;
-    align-items: center; /* centers the title and grid */
+    align-items: center; 
     padding: 60px 20px;
     gap: 32px;
 }
@@ -85,19 +83,6 @@
     flex-direction: row;
     gap: 24px;
     align-items: start;
-}
-
-
-
-/* Responsive: stack on smaller screens */
-@media (max-width: 900px) {
-    .feature-grid { grid-template-columns: repeat(2, 1fr); }
-    .features { padding: 48px 16px; }
-}
-
-@media (max-width: 560px) {
-    .feature-grid { grid-template-columns: 1fr; }
-    .features-title { font-size: 24px; }
 }
 
 .feature-card {
@@ -132,7 +117,7 @@
 .info-card h2 { font-size: 36px; margin-bottom: 15px;}
 .info-card p { font-size: 18px; text-decoration: none; }
 
-/* Container for plan cards in a row */
+/* ------------------ PLAN CARDS ------------------ */
 .plan-container {
     display: flex;
     flex-direction: row;
@@ -142,7 +127,6 @@
     justify-content: center; /* center the plan cards */
 }
 
-/* Optional: keep your existing plan card styles */
 .info-card.plan {
     flex: 1 1 200px; /* grow, shrink, base width */
     max-width: 250px; /* optional limit */
@@ -177,7 +161,7 @@
 }
 
 
-/* Call to Action */
+/* ------------------ CTA CARDS ------------------ */
 .cta-cards {
     max-width: 1200px;
     margin: 80px auto;
@@ -218,19 +202,13 @@
     text-decoration: none;
 }
 
-@media (max-width: 1024px) {
-    .cta-card { flex: 1 1 45%; }
-}
 
-@media (max-width: 768px) {
-    .cta-card { flex: 1 1 100%; }
-}
+/* ------------------ CALL TO ACTION SECTION ------------------ */
 .cta {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
     max-width: 1100px;
     margin: 120px auto;
     padding: 60px 40px;
@@ -303,7 +281,7 @@
     }
 }
 
-/* Footer */
+/* ------------------ FOOTER ------------------ */
 .footer {
     width: 100%;
     background-color: var(--main);
@@ -317,10 +295,43 @@
 .footer-nav a:hover { opacity: 1; }
 .footer-copy { font-size: 14px; opacity: 0.8; }
 
-/* Responsive */
-@media (max-width: 992px) {
-    .hero-content h1 { font-size: 36px; }
-    .features { flex-direction: column; gap: 20px; }
+/* ------------------ RESPONSIVE ADJUSTMENTS ------------------ */
+
+/* Large tablets / smaller desktops */
+@media (max-width: 1024px) {
+    .cta-card { flex: 1 1 45%; max-width: 45%; }
+    .feature-grid { flex-wrap: wrap; justify-content: center; gap: 20px; }
+    .cta-content img { width: 300px; }
+    .cta { padding: 50px 20px; margin: 80px auto; }
 }
+
+/* Tablets / small devices */
+@media (max-width: 768px) {
+    .hero { margin: 20px auto; padding: 0 15px; }
+    .hero-content { padding: 0 10px; }
+    .feature-grid { flex-direction: column; gap: 20px; }
+    .feature-card { max-width: 100%; }
+    .plan-container { flex-direction: column; align-items: center;  max-width: 300px;}
+    .info-card.plan { max-width: 100%; max-height: 100%; }
+    .cta-cards { flex-direction: column; gap: 20px; }
+    .cta-card { max-width: 100%; }
+    .cta { padding: 40px 20px; }
+    .cta-content { flex-direction: column; gap: 20px; align-items: center; }
+    .plan-container .info-card {width: 100%; max-width: 300px; height: 150px;}
+    .cta-content img { width: 100%; max-width: 300px; }
+    .cta-text { text-align: center; margin-top: 20px; }
+}
+
+/* Extra small phones */
+@media (max-width: 520px) {
+    .hero-content h1 { font-size: 26px; }
+    .hero-content p { font-size: 14px; }
+    .features-title { font-size: 22px; }
+    .cta h2, .cta h3 { font-size: 20px; text-align: center; }
+    .cta p { font-size: 14px; }
+    .cta .btn { font-size: 13px; padding: 10px; width: 100%; max-width: 250px; }
+    .cta-content img { max-width: 250px; }
+}
+
 
 

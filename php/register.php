@@ -5,14 +5,12 @@ session_start();
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-// Connect to MySQL
-$conn = new mysqli("localhost", "root", "", "gabriella_db");
+require_once 'db.php';
 
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
+// Check if form submitted
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    // this are the values from the registration form. Collecting them into variables
     $username   = $_POST['username'];
     $firstname  = $_POST['firstname'];
     $lastname   = $_POST['lastname'];
@@ -24,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $city       = $_POST['city'];
     $postalcode = $_POST['postalcode'];
 
-    // Check if email already exists
+    // Check if email already exists. if it does, show error message
     $check = $conn->prepare("SELECT id FROM users WHERE email = ?");
     $check->bind_param("s", $email);
     $check->execute();
@@ -44,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($stmt->execute()) {
         $user_id = $conn->insert_id; 
-        // Save session
+        // Save user data in session after successful registration
         $_SESSION['logged_in'] = true;
         $_SESSION['username'] = $username;
         $_SESSION['id']        = $user_id;
@@ -52,9 +50,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['lastname']  = $lastname;
         $_SESSION['email']     = $email;
         header("Location: ../index.php"); // redirect to homepage
-        exit;
+        exit();
     } else {
-        echo "Error: " . $stmt->error;
+        $_SESSION['register_error'] = "Registration failed. Please try again.";
+        header("Location: ../index.php?showRegister=true");
+        exit();
     }
 
     $stmt->close();

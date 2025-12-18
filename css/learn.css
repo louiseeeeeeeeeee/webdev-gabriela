@@ -254,10 +254,13 @@
 .footer-nav a:hover { opacity: 1; }
 .footer-copy { font-size: 14px; opacity: 0.8; }
 
-/* Responsive */
+/* ------------------ RESPONSIVE ------------------ */
+/* Large tablets / small desktops */
 @media (max-width: 1024px) {
     .feature-card { flex: 1 1 45%; }
 }
+
+/* Tablets / landscape mobile */
 @media (max-width: 768px) {
     .header-inner { flex-direction: column; }
     .nav { flex-wrap: wrap; justify-content: center; }

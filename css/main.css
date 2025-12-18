@@ -6,32 +6,66 @@
     --dark: #141414; /*Black/dark colors convey sophistication, seriousness, and strength. */
 }
 
-/* Reset & Base */
+/* ---------------- RESET & BASE ---------------- */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: "Poppins", sans-serif; color: var(--dark); line-height: 1.6; }
 
-/* Header & Nav */
-.header { background: var(--main); padding: 20px; position: sticky; top: 0; z-index: 1000; width: 100%; box-shadow: 0 2px 6px rgba(0,0,0,0.15); }
-.header-inner { max-width: 1200px; margin: auto; display: flex; justify-content: space-between; align-items: center; }
-.logo { font-size: 32px; font-weight: 600; color: var(--light); }
-.logo span { color: var(--main); }
-.logo .accent { color: var(--secondary); }
-.logo .logo-text-main { color: var(--warm); }
-.nav { display: flex; gap: 20px; }
-.nav a { color: var(--light); text-decoration: none; font-size: 18px; position: relative; margin: 0 15px; padding: 6px 10px; transition: all 0.3s ease; }
+/* ---------------- HEADER & NAV ---------------- */
+.header { 
+    background: var(--main); 
+    padding: 20px 15px; 
+    position: sticky; 
+    top: 0; z-index: 1000; 
+    width: 100%; 
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15); 
+}
+.header-inner { 
+    max-width: 1200px; 
+    margin: auto; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+}
+.logo { 
+    font-size: 32px; 
+    font-weight: 600; 
+    color: var(--light); 
+}
+.logo span { 
+    color: var(--main); 
+}
+.logo .accent { 
+    color: var(--secondary); 
+}
+.logo .logo-text-main { 
+    color: var(--warm); 
+}
+.nav { 
+    display: flex; 
+    gap: 20px; 
+}
+.nav a { 
+    color: var(--light); 
+    text-decoration: none; 
+    font-size: 18px; 
+    position: relative; 
+    margin: 0 15px; 
+    padding: 6px 10px; 
+    transition: all 0.3s ease; 
+}
 .nav a::after { content: ''; position: absolute; left: 0; bottom: -4px; width: 0; height: 2px; background: var(--secondary); transition: width 0.3s ease; }
 .nav a:hover::after { width: 100%; }
 .nav a:hover { transform: scale(1.05); color: var(--secondary); }
 .nav a.active { transform: scale(1.05); color: var(--secondary); opacity: 0.7; }
 .nav a.active::after { width: 100%; }
 
-/* Buttons */
+/* ---------------- BUTTONS ---------------- */
 .btn { padding: 12px 28px; border-radius: 40px; font-size: 16px; font-weight: 500; cursor: pointer; border: 2px solid transparent; transition: all 0.3s ease; }
 .btn.warm { background: var(--warm); color: white; text-decoration: none;}
 .btn.outline { background: transparent; color: var(--light); border: 2px solid var(--light); }
 .btn:hover { opacity: 0.9; }
 
-/* Footer */
+/* ---------------- FOOTER ---------------- */
 .footer { width: 100%; background-color: var(--main); padding: 20px; color: white; }
 .footer-container { max-width: 1200px; margin: 0 auto; text-align: center; }
 .footer-logo { font-size: 28px; font-weight: 600; margin-bottom: 15px; }
@@ -39,13 +73,6 @@ body { font-family: "Poppins", sans-serif; color: var(--dark); line-height: 1.6;
 .footer-nav a { color: white; text-decoration: none; font-size: 16px; opacity: 0.9; }
 .footer-nav a:hover { opacity: 1; }
 .footer-copy { font-size: 14px; opacity: 0.8; }
-
-/* Responsive basics */
-@media (max-width: 768px) {
-    .nav { flex-direction: column; }
-    .header-inner { flex-direction: column; gap: 10px; }
-}
-
 
 /* ------------------ OVERLAY AUTH FORM ------------------ */
 
@@ -157,7 +184,7 @@ body { font-family: "Poppins", sans-serif; color: var(--dark); line-height: 1.6;
     margin-top: 10px;
 }
 
-/* User dropdown Design */
+/* ---------------- USER DROPDOWN ---------------- */
 .user-dropdown {
     position: relative;
     display: inline-block;
@@ -250,16 +277,6 @@ body { font-family: "Poppins", sans-serif; color: var(--dark); line-height: 1.6;
     outline: none;
 }
 
-/* small-screen: full-width-ish menu */
-@media (max-width: 520px) {
-    .user-dropdown .user-menu {
-        right: 8px;
-        left: 8px;
-        min-width: unset;
-        top: calc(100% + 8px);
-    }
-}
-
 /* smooth scrolling for anchor links */
 html {
     scroll-behavior: smooth;
@@ -269,4 +286,39 @@ html {
 .features-title {
     /* set to your header height (adjust as needed) */
     scroll-margin-top: var(--header-height, 100px);
+}
+
+/* ---------------- NAV RESPONSIVE ---------------- */
+@media (max-width: 1024px) { /* Tablets */
+    .nav a {
+        font-size: 16px; /* slightly smaller */
+        margin: 0 10px; /* reduce spacing */
+        padding: 5px 8px;
+    }
+}
+
+@media (max-width: 768px) { /* Mobile */
+    .header-inner { flex-direction: column; gap: 10px; }
+    .nav a {
+        font-size: 10px; /* smaller font for smaller screens */
+        margin: 0 15px;
+        padding: 2px 4px;
+    }
+    .btn {
+        width: 100%;
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 520px) { /* Extra small phones */
+    .nav a {
+        font-size: 13px;
+        margin: 0 3px;
+        padding: 3px 5px;
+    }
+    .btn {
+        font-size: 13px;
+        padding: 6px 10px;
+    }
 }
